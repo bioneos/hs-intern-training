@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BioNeos Intern Software Setup</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/bioneos.css">
+    <link rel="stylesheet" href="lib/css/monokai.css">
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>BioNeos Intern Training</h1>
+          <div><img class="logo" src="images/logo-new.svg" alt="BioNeos logo"></div>
+          <p class="callout">By the end of these modules, your computer and accounts should be ready, you will be introduced to web design, you will be introduced to version managment and GItHub, and you will have a workign copy of the project repository..</p>
+        </section>
+        <section id="overview-slide">
+          <h1>Modules</h1>
+          <ol>
+            <li><span class="y"><a href="software-install.html">Accounts and Software</a></span></li>
+            <li><span class="p">Web Design Basics</span></li>
+            <li><span class="b">Version Management and GitHub</span></li>
+            <li><span class="r">Hydration Project Introduction</span></li>
+          </ol>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+    <script>
+      // Ensure every external task link opens in a new tab.
+      document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      });
+
+      Reveal.initialize({
+        progress: true,
+        history: true,
+        slideNumber: true,
+        transition: 'slide',
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

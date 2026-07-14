@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BioNeos Intern Software Setup</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/bioneos.css">
+    <link rel="stylesheet" href="lib/css/monokai.css">
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>BioNeos Intern Software Setup</h1>
+          <div><img class="logo" src="images/logo-new.svg" alt="BioNeos logo"></div>
+          <p class="callout">By the end of this session, your computer and accounts should be ready for Arduino, web development, containers, code editing, Slack, and GitHub.</p>
+        </section>
+
+        <section>
+          <h1 class="r">Good Troubleshooting is Part of the Internship.</h1>
+          <p>When something doesn't work, don't give up or ask for help too early. For the installs ask yourself:</p>
+          <ul class="checklist">
+            <li>Do you have the right installation copy? (Windows, x64, etc.)</li>
+            <li>Have you restarted after installs?</li>
+            <li>Is you school email blocking sign ups?</li>
+            <li>Are you using the right terminal?</li>
+            <li>Do you have any typos in your commands?</li>
+          </ul>
+          <p class="callout">Try to troubleshoot, but it is okay to ask for help once you have tried a few different things.</p>
+        </section>
+
+        <section>
+          <h1 class="b">Setup Mission</h1>
+          <div class="one-col">
+            <div>
+              <p>Today is not about memorizing every tool. It is about getting a working development environment and knowing how to verify it.</p>
+              <ol class="roadmap">
+                <li>Create the accounts you will use for collaboration.</li>
+                <li>Install the software used in the intern workflow.</li>
+                <li>Run one quick test for each install.</li>
+                <li>Ask for help early when a step does not match your screen.</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section id="overview-slide">
+          <h1>Steps</h1>
+          <ol>
+            <li><span class="y">Accounts</span>: Slack + GitHub</li>
+            <li><span class="p">Editor</span>: Visual Studio Code</li>
+            <li><span class="b">Web tools</span>: Node.js</li>
+            <li><span class="r">Containers</span>: Docker</li>
+            <li><span class="y">Hardware</span>: Arduino IDE + ESP8266 drivers</li>
+          </ol>
+        </section>
+
+          <section>
+            <h1><span class="y">Accounts</span> First</h1>
+            <p>Accounts make the tools useful. You will use Slack for communication and GitHub for code collaboration.</p>
+            <div class="grid">
+              <div class="card yellow">
+                <h3>Slack</h3>
+                <p>Join the BioNeos workspace from your invitation or sign in with your approved email.</p>
+                <a class="task-link y" target="_blank" rel="noopener noreferrer" href="https://slack.com/get-started">Open Slack get started</a>
+              </div>
+              <div class="card purple">
+                <h3>GitHub</h3>
+                <p>Create a GitHub account and verify your email so you can access repositories and submit code.</p>
+                <a class="task-link p" target="_blank" rel="noopener noreferrer" href="https://github.com/signup">Open GitHub sign up</a>
+              </div>
+            </div>
+          </section>
+
+        <section>
+          <section>
+            <h1>Visual Studio <span class="p">Code</span></h1>
+            <p>VS Code is the editor where you will open project folders, edit files, run terminal commands, and use extensions.</p>
+            <p>
+              <a class="task-link p" target="_blank" rel="noopener noreferrer" href="https://code.visualstudio.com/download">Download VS Code</a>
+            </p>
+          </section>
+          <section>
+            <h1>VS Code Extensions</h1>
+            <div class="grid three">
+              <div class="card teal"><h3>Arduino</h3><p>Helpful when editing microcontroller code.</p></div>
+              <div class="card purple"><h3>JavaScript</h3><p>Built in support is included; extensions may add linting or formatting.</p></div>
+              <div class="card yellow"><h3>Docker</h3><p>Useful for viewing containers, images, and Dockerfiles.</p></div>
+            </div>
+            <p><a class="task-link b" target="_blank" rel="noopener noreferrer" href="https://marketplace.visualstudio.com/VSCode">Open VS Code Marketplace</a></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1><span class="b">Node.js</span> + npm</h1>
+            <p>Node.js lets your computer run JavaScript outside the browser. npm installs JavaScript packages such as Express.</p>
+            <p>
+              <a class="task-link b" target="_blank" rel="noopener noreferrer" href="https://nodejs.org/en/download">Download Node.js</a>
+           </p>
+          </section>
+          <section>
+            <h1>Node Check</h1>
+            <p>Open a terminal and run:</p>
+            <pre><code class="language-bash">node -v
+npm -v</code></pre>
+            <div class="callout verify">If both commands print version numbers, Node.js and npm are working.</div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1><span class="r">Docker</span></h1>
+            <p>Docker runs apps in containers so projects behave more consistently across different computers.</p>
+            <p>
+              <a class="task-link r" target="_blank" rel="noopener noreferrer" href="https://www.docker.com/products/docker-desktop/">Download Docker Desktop</a>
+            </p>
+          </section>
+          <section>
+            <h1>Docker Check</h1>
+            <p>Open a terminal and run:</p>
+            <pre><code class="language-bash">docker --version</code></pre>
+            <div class="callout verify">If the command print a version number, Docker is installed.</div>
+          </section>
+        </section>
+
+          <section>
+            <h1><span class="y">Arduino</span> IDE</h1>
+            <p>Arduino IDE is used to write, compile, and upload code to microcontroller boards such as ESP8266 development boards.</p>
+            <p>
+              <a class="task-link y" target="_blank" rel="noopener noreferrer" href="https://www.arduino.cc/en/software">Download Arduino IDE</a>
+            </p>
+          </section>
+
+
+        <section>
+          <section>
+            <h1>ESP-12 / <span class="y">ESP8266</span></h1>
+            <p>ESP8266 boards often need two setup pieces: Arduino board support and the USB-to-serial driver for the board's adapter chip.</p>
+          </section>
+          <section>
+            <h1>Add ESP8266 Board Support</h1>
+            <ol class="roadmap">
+              <li>Open Arduino IDE.</li>
+              <li>Go to <strong>File &gt; Preferences</strong>.</li>
+              <li>Paste this URL in <strong>Additional Boards Manager URLs</strong>:</li>
+            </ol>
+            <pre><code class="language-text">https://arduino.esp8266.com/stable/package_esp8266com_index.json</code></pre>
+            <ol class="roadmap" start="4">
+              <li>Go to <strong>Tools &gt; Board &gt; Boards Manager</strong>.</li>
+              <li>Search <strong>esp8266</strong> and install the ESP8266 platform.</li>
+            </ol>
+          </section>
+          <section>
+            <h1>USB Drivers</h1>
+            <p>For you computer to properly communicate with the board you need the proper drivers.</p>
+            <div class="grid">
+              <div class="card yellow">
+                <h3>Driver Download</h3>
+                <a class="task-link y" target="_blank" rel="noopener noreferrer" href="https://www.silabs.com/documents/public/software/CP210x_Universal_Windows_Driver.zip">ESP8266 Universial Windows Driver</a>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="center">
+          <h1><a href="index.html#/overview-slide">Return to modules</a></h1>
+          <div><img src="images/logo-new.svg" alt="BioNeos logo" style="height:110px; margin-top: 0.5em;"></div>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+    <script>
+      // Ensure every external task link opens in a new tab.
+      document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      });
+
+      Reveal.initialize({
+        progress: true,
+        history: true,
+        slideNumber: true,
+        transition: 'slide',
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
