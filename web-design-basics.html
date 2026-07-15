@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BioNeos Intern Web Design Basics</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/bioneos.css">
+    <link rel="stylesheet" href="lib/css/monokai.css">
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Web Design Basics</h1>
+          <div><img class="logo" src="images/logo-new.svg" alt="BioNeos logo"></div>
+          <p class="callout">A beginner module for high school interns learning how HTML, CSS, and JavaScript work together to create websites and web apps.</p>
+        </section>
+
+        <section>
+          <h1 class="b">Learning Goals</h1>
+          <ol class="roadmap">
+            <li>Explain the role of HTML, CSS, and JavaScript.</li>
+            <li>Read and edit a basic webpage file structure.</li>
+            <li>Use browser developer tools to inspect and debug pages.</li>
+            <li>Build a small interactive page from starter code.</li>
+          </ol>
+        </section>
+
+          <section>
+            <h1>Three Parts of a Web Page</h1>
+            <div class="grid three web-stack">
+              <div class="card yellow"><h3>HTML</h3><p>The content and structure.</p></div>
+              <div class="card purple"><h3>CSS</h3><p>The appearance and layout.</p></div>
+              <div class="card teal"><h3>JavaScript</h3><p>The logic and interaction.</p></div>
+            </div>
+            <p class="callout">A strong web page separates meaning, style, and behavior so each part is easier to update.</p>
+          </section>
+
+        <section>
+          <section>
+            <h1><span class="y">HTML</span> Structure and Content</h1>
+            <p>HTML uses elements to describe what the content is: headings, paragraphs, images, links, lists, sections, forms, and buttons.</p>
+            <pre><code class="language-html">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, BioNeos!&lt;/h1&gt;
+    &lt;script src="js/script.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </section>
+          <section class="html-tags-slide">
+  <h1>HTML <span class="y">Elements</span> and <span class="y">Tags</h1>
+  <p class="lead-text">
+    HTML elements are the fundamental building blocks used to structure web pages
+    and format content for web browsers.
+  </p>
+  <p>HTML elements has three basic parts.</p>
+  <ol class="indent-list">
+    <li><strong>Opening tag:</strong> starts an element, like <code>&lt;h1&gt;</code></li>
+    <li><strong>Content:</strong> the text, image, link, or item shown on the page</li>
+    <li><strong>Closing tag:</strong> ends an element, like <code>&lt;/h1&gt;</code></li>
+  </ol>
+  <pre><code class="language-html">
+    &lt;h1&gt;Hello, BioNeos!&lt;/h1&gt;
+  </code></pre>
+</section>
+          <section>
+            <h1>Common Elements and Tags</h1>
+            <div class="grid three">
+              <div class="card yellow"><h3>&lt;h1&gt;-&lt;h6&gt;</h3><p>Headings organize page sections.</p></div>
+              <div class="card yellow"><h3>&lt;p&gt;</h3><p>Paragraph text for readable content.</p></div>
+              <div class="card yellow"><h3>&lt;a&gt;</h3><p>Links to pages, files, or websites.</p></div>
+              <div class="card yellow"><h3>&lt;img&gt;</h3><p>Displays images with alt text.</p></div>
+              <div class="card yellow"><h3>&lt;button&gt;</h3><p>Clickable action on the page.</p></div>
+              <div class="card yellow"><h3>&lt;form&gt;</h3><p>Collects user input.</p></div>
+            </div>
+            <br>
+          <p>The elements above are commonly used but there are over 100 elements in the current interation of the language <span class="y">HTML5</span>. Check them all out at the link below.</p>
+          <p><a class="task-link y" target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/tags/">HTML Element Reference</a></p>
+</section>
+          <section class="html-playground-slide">
+  <h2>Try Writing HTML</h2>
+  <p class="playground-instructions">
+    Type HTML in the editor and see the result in the preview window.
+  </p>
+  <div class="html-playground">
+    <div class="editor-panel">
+      <div class="panel-heading">HTML Editor</div>
+      <textarea
+        class="html-editor"
+        aria-label="HTML code editor"
+        spellcheck="false"
+      ><h1>Welcome to Bio:Neos!</h1>
+<p>This content was created with HTML.</p>
+<button>Click Me</button></textarea>
+      <div class="editor-controls">
+        <button class="run-html-button" type="button">
+          Run HTML
+        </button>
+        <button class="reset-html-button" type="button">
+          Reset
+        </button>
+      </div>
+    </div>
+    <div class="preview-panel">
+      <div class="panel-heading">Preview</div>
+      <iframe
+        class="html-preview"
+        title="HTML preview"
+        sandbox="allow-scripts"
+      ></iframe>
+    </div>
+  </div>
+</section>
+        </section>
+
+        <section>
+          <section>
+            <h1><span class="p">CSS</span> Controls Design</h1>
+            <p>CSS chooses colors, fonts, sizes, spacing, layout, and responsive behavior.</p>
+            <pre><code class="language-css">body {
+  font-family: Arial, sans-serif;
+  background: #1f1f1f;
+  color: white;
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 12px;
+}</code></pre>
+          </section>
+          <section>
+            <h1>Selectors</h1>
+            <p>CSS selectors tell the browser which HTML elements to style. 
+              They can target groups of elements, elements with specific classes, or elements with unique IDs. 
+              Styles can be attached to selectors as show below and included in a style section of an HTML file or in their own seperate file.</p>
+            <div class="grid three">
+              <div class="card purple"><h3>Element</h3><p><code>p</code> targets all paragraphs.</p></div>
+              <div class="card purple"><h3>Class</h3><p><code>.card</code> targets anything with <code>class="card"</code>.</p></div>
+              <div class="card purple"><h3>ID</h3><p><code>#main-title</code> targets one unique element.</p></div>
+            </div>
+            <pre><code class="language-css">
+p { font-size: 40px; }
+
+.card { border: 3px solid rgb(100, 50, 50); }
+
+#main-title { color: teal; }
+          </code></pre>
+          </section>
+<section class="html-playground-slide">
+  <h2>Try Writing CSS</h2>
+  <p class="playground-instructions">
+    Change the CSS in the style section of the html editor and see the result in the preview window.
+  </p>
+  <div class="html-playground">
+    <div class="editor-panel">
+      <div class="panel-heading">CSS Editor</div>
+      <textarea
+        class="html-editor"
+        aria-label="HTML code editor"
+        spellcheck="false"
+      >
+<style>
+p { font-size: 40px; }
+
+.card { border: 3px solid rgb(100, 50, 50); }
+
+#main-title { color: teal; }
+</style>
+<h1 id="main-title">Welcome to Bio:Neos!</h1>
+<div class="card"><p>This content was created with HTML.</p></div>
+
+<button>Click Me</button></textarea>
+      <div class="editor-controls">
+        <button class="run-html-button" type="button">
+          Run HTML
+        </button>
+        <button class="reset-html-button" type="button">
+          Reset
+        </button>
+      </div>
+    </div>
+    <div class="preview-panel">
+      <div class="panel-heading">Preview</div>
+      <iframe
+        class="html-preview"
+        title="HTML preview"
+        sandbox="allow-scripts"
+      ></iframe>
+    </div>
+  </div>
+        </section>
+          <section>
+            <h1>The Box Model</h1>
+            <p>The CSS box model treats every HTML element as a box made of content, padding, border, and margin. 
+            These layers determine the element’s size and the space around it.</p>
+            <div><img class="module-img-large" src="images/box-model.png" alt="File Structure">
+            </div>
+          </section>
+          <section>
+            <h1>Layout Tools</h1>
+            <p>CSS layout tools control how elements are arranged and spaced on a webpage. 
+            Flexbox is best for organizing items in one direction, while Grid is designed for layouts with both rows and columns.</p>
+            <div class="grid">
+              <div class="card teal"><h3>Flexbox</h3><p>Best for arranging items in one row or one column.</p></div>
+              <div class="card purple"><h3>Grid</h3><p>Best for two-dimensional layouts with rows and columns.</p></div>
+            </div>
+          </section>
+          <section class="layout-playground-slide">
+  <h2>Flexbox vs. Grid</h2>
+  <p class="layout-playground-instructions">
+    Edit either example to see how the layout changes.
+  </p>
+
+  <div class="layout-playground-columns">
+
+    <!-- Flexbox playground -->
+    <div class="layout-playground-card">
+      <h3 class="b">Flexbox</h3>
+
+      <div class="layout-editor">
+        <textarea id="flex-demo-code" spellcheck="false">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #1f1f1f;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px;
+    border: 3px solid #3bcbaf;
+  }
+
+  .item {
+    flex: 1;
+    padding: 20px;
+    background: #918fbf;
+    color: white;
+    text-align: center;
+  }
+</style>
+
+<div class="container">
+  <div class="item">One</div>
+  <div class="item">Two</div>
+  <div class="item">Three</div>
+</div>
+        </textarea>
+
+        <iframe
+          id="flex-demo-preview"
+          class="layout-preview"
+          title="Flexbox preview">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Grid playground -->
+    <div class="layout-playground-card">
+      <h3 class="p">Grid</h3>
+
+      <div class="layout-editor">
+        <textarea id="grid-demo-code" spellcheck="false">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background: #1f1f1f;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 15px;
+    border: 3px solid #ee746c;
+  }
+
+  .item {
+    padding: 20px;
+    background: #f9cf8d;
+    color: #1f1f1f;
+    text-align: center;
+  }
+</style>
+
+<div class="container">
+  <div class="item">One</div>
+  <div class="item">Two</div>
+  <div class="item">Three</div>
+  <div class="item">Four</div>
+</div>
+        </textarea>
+
+        <iframe
+          id="grid-demo-preview"
+          class="layout-preview"
+          title="Grid preview">
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+          <section>
+            <h1>Responsive Design</h1>
+            <p>Responsive pages adjust to different screen sizes.</p>
+            <pre><code class="language-css">@media (max-width: 700px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1><span class="b">JavaScript</span> Adds Behavior</h1>
+            <p>JavaScript can respond to clicks, update text, validate forms, fetch data, and change the page without reloading.</p>
+            <pre><code class="language-js">const button = document.querySelector('#refresh');
+
+button.addEventListener('click', function () {
+  console.log('Refresh requested');
+});</code></pre>
+          </section>
+          <section>
+            <h1>Variables + Values</h1>
+            <pre><code class="language-js">const plantName = 'Pothos';
+let moisture = 615;
+let needsWater = moisture &lt; 400;</code></pre>
+            <div class="grid three">
+              <div class="card teal"><h3>string</h3><p>Text, such as <code>'Pothos'</code>.</p></div>
+              <div class="card teal"><h3>number</h3><p>A numeric value, such as <code>615</code>.</p></div>
+              <div class="card teal"><h3>boolean</h3><p><code>true</code> or <code>false</code>.</p></div>
+            </div>
+          </section>
+          <section>
+            <h1>The DOM</h1>
+            <p>The DOM is the browser's live model of the page. JavaScript can select and update DOM elements.</p>
+            <pre><code class="language-js">const status = document.querySelector('#status');
+status.textContent = 'Moisture level updated';
+status.classList.add('success');</code></pre>
+          </section>
+          <section>
+            <h1>Events</h1>
+            <p>Events are things that happen: click, submit, keydown, input, load, and more.</p>
+            <pre><code class="language-js">document.querySelector('#save').addEventListener('click', function () {
+  alert('Saved!');
+});</code></pre>
+            <div class="callout verify">Most interactive pages are built from this pattern: select an element, listen for an event, run a function.</div>
+          </section>
+        </section>
+
+         <section>
+            <h1>Common Project Structure</h1>
+            <div><img class="module-img-medium" src="images/file-structure.png" alt="File Structure"></div>
+            <p class="callout verify">Start by finding <code>index.html</code>. It is usually the main page the browser opens first.</p>
+          </section>
+          
+
+        <section>
+          <section>
+            <h1>Browser DevTools</h1>
+            <p>DevTools helps you inspect HTML, test CSS, read errors, and debug JavaScript.</p>
+            <ul class="checklist">
+              <li>Right click a page and choose <strong>Inspect</strong>.</li>
+              <li>Use <strong>Elements</strong> to view HTML and CSS.</li>
+              <li>Use <strong>Console</strong> to read errors and test JavaScript.</li>
+              <li>Use <strong>Network</strong> to check file and API requests.</li>
+            </ul>
+          </section>
+          <section>
+            <h1>Common Beginner Bugs</h1>
+            <div class="grid">
+              <div class="card red"><h3>Wrong file path</h3><p>The browser cannot find the CSS, JS, or image file.</p></div>
+              <div class="card red"><h3>Missing punctuation</h3><p>One missing quote, bracket, or semicolon can break code.</p></div>
+              <div class="card red"><h3>Selector mismatch</h3><p>JavaScript or CSS targets a class or ID that does not exist.</p></div>
+              <div class="card red"><h3>Cache confusion</h3><p>The browser shows an older copy. Hard refresh and test again.</p></div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Mini Challenge</h1>
+            <p>Create a simple intern challenge.</p>
+            <ol class="roadmap">
+              <li>Filler</li>
+              <li>Filler</li>
+              <li>Filler</li>
+              <li>Filler</li>
+            </ol>
+          </section>
+          <section>
+            <h1>Starter HTML</h1>
+            <pre><code class="language-html">code example</code></pre>
+          </section>
+          <section>
+            <h1>Starter CSS</h1>
+            <pre><code class="language-css"> code example</code></pre>
+          </section>
+          <section>
+            <h1>Starter JavaScript</h1>
+            <pre><code class="language-js">code example</code></pre>
+          </section>
+        </section>
+
+
+        <section class="center">
+          <h1><a href="index.html#/overview-slide">Return to modules</a></h1>
+          <div><img src="images/logo-new.svg" alt="BioNeos logo" style="height:110px; margin-top: 0.5em;"></div>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+    <script>
+      // Ensure every external task link opens in a new tab.
+      document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      });
+
+      Reveal.initialize({
+        progress: true,
+        history: true,
+        slideNumber: true,
+        transition: 'slide',
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true }
+        ]
+      });
+
+      
+  document.querySelectorAll(".html-playground-slide").forEach((slide) => {
+    const editor = slide.querySelector(".html-editor");
+    const preview = slide.querySelector(".html-preview");
+    const runButton = slide.querySelector(".run-html-button");
+    const resetButton = slide.querySelector(".reset-html-button");
+
+    const startingCode = editor.value;
+
+    function updatePreview() {
+      preview.srcdoc = editor.value;
+    }
+
+    function resetEditor() {
+      editor.value = startingCode;
+      updatePreview();
+    }
+
+    runButton.addEventListener("click", updatePreview);
+    resetButton.addEventListener("click", resetEditor);
+
+    /*
+     * Prevent Reveal.js from changing slides while the student
+     * is typing inside the editor.
+     */
+    editor.addEventListener("keydown", (event) => {
+      event.stopPropagation();
+
+      /*
+       * Insert spaces when Tab is pressed instead of moving
+       * keyboard focus away from the editor.
+       */
+      if (event.key === "Tab") {
+        event.preventDefault();
+
+        const start = editor.selectionStart;
+        const end = editor.selectionEnd;
+        const spaces = "  ";
+
+        editor.value =
+          editor.value.substring(0, start) +
+          spaces +
+          editor.value.substring(end);
+
+        editor.selectionStart = editor.selectionEnd =
+          start + spaces.length;
+      }
+
+      /*
+       * Ctrl+Enter or Command+Enter runs the HTML.
+       */
+      if (
+        event.key === "Enter" &&
+        (event.ctrlKey || event.metaKey)
+      ) {
+        event.preventDefault();
+        updatePreview();
+      }
+    });
+
+    editor.addEventListener("keyup", (event) => {
+      event.stopPropagation();
+    });
+
+    editor.addEventListener("keypress", (event) => {
+      event.stopPropagation();
+    });
+
+    updatePreview();
+  });
+
+    </script>
+  </body>
+</html>

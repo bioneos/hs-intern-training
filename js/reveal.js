@@ -6026,3 +6026,28 @@
 	return Reveal;
 
 }));
+function connectLayoutPlayground(codeId, previewId) {
+    const codeEditor = document.getElementById(codeId);
+    const preview = document.getElementById(previewId);
+
+    if (!codeEditor || !preview) {
+      return;
+    }
+
+    function updatePreview() {
+      preview.srcdoc = codeEditor.value;
+    }
+
+    codeEditor.addEventListener("input", updatePreview);
+    updatePreview();
+  }
+
+  connectLayoutPlayground(
+    "flex-demo-code",
+    "flex-demo-preview"
+  );
+
+  connectLayoutPlayground(
+    "grid-demo-code",
+    "grid-demo-preview"
+  );
