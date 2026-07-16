@@ -46,6 +46,17 @@
             <p class="callout">A strong web page separates meaning, style, and behavior so each part is easier to update.</p>
           </section>
 
+
+         <section>
+            <h1>Project Structure</h1>
+            <p>Most projects have a file struture simliar to what is below. 
+              HTML is typically in the main folde rand each type of code in its own seperate file often in a seperate folder. 
+              Assests like images are often seperated out into folders by type.
+            </p>
+            <div><img class="module-img-medium" src="images/file-structure.png" alt="File Structure"></div>
+            <p class="callout verify">Start by finding <code>index.html</code>. It is usually the main page the browser opens first and is required by GitHub.</p>
+          </section>
+          
         <section>
           <section>
             <h1><span class="y">HTML</span> Structure and Content</h1>
@@ -370,7 +381,7 @@ button.addEventListener('click', function () {
             <pre><code class="language-html"><script src="script.js" defer></script></code></pre>
           </section>
                     <section>
-            <h1>Leanring JavaScript</h1>
+            <h1>Learning JavaScript</h1>
             <p>If you are unfamiliar with <span class="b">Javascript</span> it would be useful to spend some time leanring it. 
               Follow the link below and spend time going through the course to learn the basics.</p>
             <br>
@@ -378,14 +389,29 @@ button.addEventListener('click', function () {
 </section>
         </section>
 
-         <section>
-            <h1>Common Project Structure</h1>
-            <div><img class="module-img-medium" src="images/file-structure.png" alt="File Structure"></div>
-            <p class="callout verify">Start by finding <code>index.html</code>. It is usually the main page the browser opens first.</p>
-          </section>
-          
-
         <section>
+          <section>
+            <h1>TroubleShooting</h1>
+             <p>One of the most difficult processes you will engage with is troubleshooting or <span class="b">debugging</span></p>
+            <ul class="checklist">
+  <li>Test one small change at a time.</li>
+  <li>Inspect elements and CSS with Developer Tools.</li>
+  <li>Confirm file paths, links, and filenames.</li>
+  <li>Refresh the page and clear the browser cache.</li>
+  <li>Use <code>console.log()</code> to check JavaScript values.</li>
+  <li>Validate HTML and CSS syntax.</li>
+  <li>Test in multiple browsers and screen sizes.</li>
+</ul>
+          </section>
+           <section>
+            <h1>Common Beginner Bugs</h1>
+            <div class="grid">
+              <div class="card red"><h3>Wrong file path</h3><p>The browser cannot find the CSS, JS, or image file.</p></div>
+              <div class="card red"><h3>Missing punctuation</h3><p>One missing quote, bracket, or semicolon can break code.</p></div>
+              <div class="card red"><h3>Selector mismatch</h3><p>JavaScript or CSS targets a class or ID that does not exist.</p></div>
+              <div class="card red"><h3>Cache confusion</h3><p>The browser shows an older copy. Hard refresh and test again.</p></div>
+            </div>
+          </section>
           <section>
             <h1>Browser DevTools</h1>
             <p>DevTools helps you inspect HTML, test CSS, read errors, and debug JavaScript.</p>
@@ -395,15 +421,6 @@ button.addEventListener('click', function () {
               <li>Use <strong>Console</strong> to read errors and test JavaScript.</li>
               <li>Use <strong>Network</strong> to check file and API requests.</li>
             </ul>
-          </section>
-          <section>
-            <h1>Common Beginner Bugs</h1>
-            <div class="grid">
-              <div class="card red"><h3>Wrong file path</h3><p>The browser cannot find the CSS, JS, or image file.</p></div>
-              <div class="card red"><h3>Missing punctuation</h3><p>One missing quote, bracket, or semicolon can break code.</p></div>
-              <div class="card red"><h3>Selector mismatch</h3><p>JavaScript or CSS targets a class or ID that does not exist.</p></div>
-              <div class="card red"><h3>Cache confusion</h3><p>The browser shows an older copy. Hard refresh and test again.</p></div>
-            </div>
           </section>
         </section>
 
