@@ -6051,3 +6051,41 @@ function connectLayoutPlayground(codeId, previewId) {
     "grid-demo-code",
     "grid-demo-preview"
   );
+
+  document.querySelectorAll(".copy-code-button").forEach((button) => {
+  button.addEventListener("click", async () => {
+    const codeBlock = button
+      .closest(".copy-code-block")
+      .querySelector("code");
+
+    const codeText = codeBlock.textContent;
+
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(codeText);
+      } else {
+        const temporaryTextArea = document.createElement("textarea");
+
+        temporaryTextArea.value = codeText;
+        temporaryTextArea.style.position = "fixed";
+        temporaryTextArea.style.opacity = "0";
+
+        document.body.appendChild(temporaryTextArea);
+        temporaryTextArea.select();
+        document.execCommand("copy");
+        temporaryTextArea.remove();
+      }
+
+      button.textContent = "Copied!";
+      button.classList.add("copied");
+
+      setTimeout(() => {
+        button.textContent = "Copy";
+        button.classList.remove("copied");
+      }, 1500);
+    } catch (error) {
+      button.textContent = "Copy failed";
+      console.error("Unable to copy code:", error);
+    }
+  });
+});

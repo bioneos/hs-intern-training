@@ -1864,3 +1864,99 @@ img.prez {
   border: 1px solid var(--bioneos-line);
   border-radius: 5px;
 }
+
+.reveal .copy-code-block {
+  position: relative;
+  width: 100%;
+}
+
+.reveal .copy-code-block pre {
+  margin-top: 0;
+}
+
+.reveal .copy-code-button {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  z-index: 10;
+
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+
+  background: var(--bioneos-teal);
+  color: #1f1f1f;
+
+  font-size: 0.35em;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.reveal .copy-code-button:hover {
+  background: var(--bioneos-yellow);
+}
+
+.reveal .copy-code-button.copied {
+  background: var(--bioneos-purple);
+  color: white;
+}
+.reveal .debug-challenge-slide > p {
+  margin-bottom: 0.6em;
+}
+
+.reveal .debug-strategy {
+  margin: 0 auto 0.6em;
+  padding: 0.45em 0.7em;
+  background: var(--bioneos-panel);
+  border-left: 7px solid var(--bioneos-yellow);
+  text-align: left;
+}
+
+.reveal .debug-strategy h3 {
+  margin: 0 0 0.25em;
+  color: var(--bioneos-yellow);
+}
+
+.reveal .debug-strategy ol {
+  margin: 0 0 0 1.2em;
+}
+
+.reveal .debug-strategy li {
+  margin-bottom: 0.15em;
+  font-size: 0.75em;
+}
+
+.reveal .solution-box {
+  margin: 0.6em auto 0;
+  background: var(--bioneos-panel);
+  border: 2px solid var(--bioneos-teal);
+  border-radius: 8px;
+  text-align: left;
+}
+
+.reveal .solution-box summary {
+  padding: 0.45em 0.7em;
+  background: var(--bioneos-teal);
+  color: #1f1f1f;
+  font-size: 0.7em;
+  font-weight: 800;
+  cursor: pointer;
+  list-style-position: inside;
+}
+
+.reveal .solution-box summary:hover {
+  background: var(--bioneos-yellow);
+}
+
+.reveal .solution-content {
+  padding: 0.45em 0.7em;
+}
+
+.reveal .solution-content p {
+  font-size: 0.7em;
+  margin: 0 0 0.4em;
+}
+
+.reveal .solution-content pre {
+  margin: 0;
+}

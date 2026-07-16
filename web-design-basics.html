@@ -427,25 +427,159 @@ button.addEventListener('click', function () {
         <section>
           <section>
             <h1>Mini Challenge</h1>
-            <p>Create a simple intern challenge.</p>
+            <p>Using an online IDE called JSFiddle, you are going to create and add to/modify a small web page.</p>
             <ol class="roadmap">
-              <li>Filler</li>
-              <li>Filler</li>
-              <li>Filler</li>
-              <li>Filler</li>
+              <li>Open JSFIddle in a new page</li>
+              <li>Copy in HTML, CSS, and JavaScript code</li>
+              <li>Troubleshoot and fix the image problem</li>
+              <li>Create your own modification or add on to the webpage</li>
             </ol>
           </section>
-          <section>
-            <h1>Starter HTML</h1>
-            <pre><code class="language-html">code example</code></pre>
-          </section>
-          <section>
-            <h1>Starter CSS</h1>
-            <pre><code class="language-css"> code example</code></pre>
-          </section>
-          <section>
-            <h1>Starter JavaScript</h1>
-            <pre><code class="language-js">code example</code></pre>
+           <section>
+            <h1>jsfiddle IDE</h1>
+            <p>If you are unfamiliar with an IDE, or <span class="b">Integrated Development Environment</span>, it is a software application that combines tools for writing, running, testing, and debugging code in one place. 
+              Many IDEs and coding environments exist; the one we are using, JSFiddle, is commonly used for simple web development and testing. 
+              Visual Studio Code is another development tool that you have installed on your local system.</p>
+            <br>
+          <p><a class="task-link b" target="_blank" rel="noopener noreferrer" href="https://jsfiddle.net/">Open jsfiddle</a></p>
+</section>
+        <section>
+  <h1>Starter HTML</h1>
+  <p>Copy into JSFiddle</p>
+
+  <div class="copy-code-block">
+    <button class="copy-code-button" type="button">Copy</button>
+
+    <pre><code class="language-html">&lt;main class="card"&gt;
+  &lt;h1&gt;Capybara Viewer&lt;/h1&gt;
+  &lt;p&gt;Click the button to display a capybara.&lt;/p&gt;
+
+  &lt;button id="capybara-button"&gt;Show Capybara&lt;/button&gt;
+
+  &lt;div id="image-container"&gt;&lt;/div&gt;
+&lt;/main&gt;</code></pre>
+  </div>
+</section>
+
+<section>
+  <h1>Starter CSS</h1>
+  <p>Copy into JSFiddle</p>
+
+  <div class="copy-code-block">
+    <button class="copy-code-button" type="button">Copy</button>
+
+    <pre><code class="language-css">body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: Arial, sans-serif;
+  background: #1f1f1f;
+  color: white;
+}
+
+.card {
+  width: min(500px, 85%);
+  padding: 30px;
+  text-align: center;
+  background: #303030;
+  border-top: 6px solid #3bcbaf;
+  border-radius: 10px;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #3bcbaf;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f9cf8d;
+}
+
+#image-container {
+  margin-top: 24px;
+}
+
+#image-container img {
+  width: 100%;
+  border-radius: 8px;
+}</code></pre>
+  </div>
+</section>
+
+<section>
+  <h1>Starter JavaScript</h1>
+  <p>Copy into JSFiddle</p>
+
+  <div class="copy-code-block">
+    <button class="copy-code-button" type="button">Copy</button>
+
+    <pre><code class="language-js">const button = document.querySelector("#capybara-buton");
+const imageContainer = document.querySelector("#image-container");
+
+button.addEventListener("click", function () {
+  const capybaraImage = document.createElement("img");
+
+  capybaraImage.src =
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Capybaracropped.jpg/250px-Capybaracropped.jpg";
+
+  capybaraImage.alt = "A capybara near the water";
+
+  imageContainer.replaceChildren(capybaraImage);
+});</code></pre>
+  </div>
+</section>
+<section class="debug-challenge-slide">
+  <h1>Capybara Troubleshoot</h1>
+
+  <p>
+    The page loads, but clicking the button does not display the image.
+    Find and fix the error.
+  </p>
+
+  <div class="debug-strategy">
+    <h3>Debugging Strategy</h3>
+    <ol>
+      <li>Follow the code in the order it runs.</li>
+      <li>Identify which HTML element each JavaScript selector <code>document.querySelector()</code> is trying to find.</li>
+      <li>Compare the selector to the element’s actual HTML <code>id</code>.</li>
+      <li>Check the browser console for an error involving <code>null</code>.</li>
+    </ol>
+  </div>
+  <details class="solution-box">
+    <summary>Reveal Solution</summary>
+
+    <div class="solution-content">
+      <p>
+        The selector contains a misspelling. It uses
+        <code>#capybara-buton</code> instead of
+        <code>#capybara-button</code>.
+      </p>
+
+      <pre><code class="language-js">const button = document.querySelector("#capybara-button");</code></pre>
+    </div>
+  </details>
+</section>
+<section>
+            <h1>Make It Your Own</h1>
+            <p>Do your own thing with the page. Some suggestions in roughly order of difficuluty are listed below.</p>
+            <ol class="roadmap">
+ <li>Change the page colors.</li>
+  <li>Change the font or text size.</li>
+  <li>Add a short capybara fact.</li>
+  <li>Add a caption below the image.</li>
+  <li>Add a button to remove the image.</li>
+  <li>Add a reset button.</li>
+  <li>Hide the button after the image appears.</li>
+  <li>Add a second animal image button.</li>
+  <li>Make the layout responsive for smaller screens.</li>
+  <li>Let the user enter a custom image URL.</li>
+            </ol>
           </section>
         </section>
 
