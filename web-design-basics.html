@@ -145,6 +145,19 @@
 }</code></pre>
           </section>
           <section>
+            <h1>Adding CSS</h1>
+            <p>CSS can be added directly to HTML</p>
+            <pre><code class="language-html"><style>
+p { font-size: 40px; }
+
+.card { border: 3px solid rgb(100, 50, 50); }
+
+#main-title { color: teal; }
+</style></code></pre>
+            <p>A better practice is to add a seperate CSS file after the &ltheader&gt tag</header></p>
+            <pre><code class="language-html"><link rel="stylesheet" href="css/theme/bioneos.css"></code></pre>
+          </section>
+          <section>
             <h1>Selectors</h1>
             <p>CSS selectors tell the browser which HTML elements to style. 
               They can target groups of elements, elements with specific classes, or elements with unique IDs. 
@@ -323,19 +336,24 @@ p { font-size: 40px; }
 </section>
           <section>
             <h1>Responsive Design</h1>
-            <p>Responsive pages adjust to different screen sizes.</p>
-            <pre><code class="language-css">@media (max-width: 700px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}</code></pre>
+            <p>Screen can often vary size and often be resized during use. CSS responsive pages can adjust to different screen sizes.</p>
+            <p>CSS media queries (@media) allow you to apply styles based on device type or the display size.</p>
+            <pre><code class="language-css">/* Small devices (portrait tablets and large phones, 400px and up) */
+@media only screen and (min-width: 400px) {...}
+
+/* Medium devices (landscape tablets, 700px and up) */
+@media only screen and (min-width: 700px) {...}
+
+/* Large devices (laptops/desktops, 1000px and up) */
+@media only screen and (min-width: 1000px) {...}
+</code></pre>
           </section>
         </section>
 
         <section>
           <section>
             <h1><span class="b">JavaScript</span> Adds Behavior</h1>
-            <p>JavaScript can respond to clicks, update text, validate forms, fetch data, and change the page without reloading.</p>
+            <p>JavaScript is a high level backend web language that can respond to clicks, update text, validate forms, fetch data, and change the page without reloading.</p>
             <pre><code class="language-js">const button = document.querySelector('#refresh');
 
 button.addEventListener('click', function () {
@@ -343,31 +361,21 @@ button.addEventListener('click', function () {
 });</code></pre>
           </section>
           <section>
-            <h1>Variables + Values</h1>
-            <pre><code class="language-js">const plantName = 'Pothos';
-let moisture = 615;
-let needsWater = moisture &lt; 400;</code></pre>
-            <div class="grid three">
-              <div class="card teal"><h3>string</h3><p>Text, such as <code>'Pothos'</code>.</p></div>
-              <div class="card teal"><h3>number</h3><p>A numeric value, such as <code>615</code>.</p></div>
-              <div class="card teal"><h3>boolean</h3><p><code>true</code> or <code>false</code>.</p></div>
-            </div>
+            <h1>Adding JavaScript</h1>
+            <p>JavaScript can be added directly to HTML</p>
+            <pre><code class="language-html"><script>
+            console.log("Hello world!");
+            </script></code></pre>
+            <p>A better practice is to add a seperate Javascript file</p>
+            <pre><code class="language-html"><script src="script.js" defer></script></code></pre>
           </section>
-          <section>
-            <h1>The DOM</h1>
-            <p>The DOM is the browser's live model of the page. JavaScript can select and update DOM elements.</p>
-            <pre><code class="language-js">const status = document.querySelector('#status');
-status.textContent = 'Moisture level updated';
-status.classList.add('success');</code></pre>
-          </section>
-          <section>
-            <h1>Events</h1>
-            <p>Events are things that happen: click, submit, keydown, input, load, and more.</p>
-            <pre><code class="language-js">document.querySelector('#save').addEventListener('click', function () {
-  alert('Saved!');
-});</code></pre>
-            <div class="callout verify">Most interactive pages are built from this pattern: select an element, listen for an event, run a function.</div>
-          </section>
+                    <section>
+            <h1>Leanring JavaScript</h1>
+            <p>If you are unfamiliar with <span class="b">Javascript</span> it would be useful to spend some time leanring it. 
+              Follow the link below and spend time going through the course to learn the basics.</p>
+            <br>
+          <p><a class="task-link b" target="_blank" rel="noopener noreferrer" href="https://www.codecademy.com/enrolled/courses/introduction-to-javascript">Learn JavaScript</a></p>
+</section>
         </section>
 
          <section>
