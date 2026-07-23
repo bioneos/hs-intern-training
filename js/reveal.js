@@ -6089,3 +6089,423 @@ function connectLayoutPlayground(codeId, previewId) {
     }
   });
 });
+
+document.querySelectorAll(".github-label-slide").forEach((activity) => {
+  const labels = [...activity.querySelectorAll(".github-drag-label")];
+  const zones = [...activity.querySelectorAll(".github-drop-zone")];
+  const checkButton = activity.querySelector(".github-check-button");
+  const resetButton = activity.querySelector(".github-reset-button");
+  const feedback = activity.querySelector(".github-activity-feedback");
+
+  let selectedLabel = null;
+  let draggedLabel = null;
+
+  function selectLabel(label) {
+    labels.forEach((item) => item.classList.remove("selected"));
+    selectedLabel = label;
+    label.classList.add("selected");
+  }
+
+  function placeLabel(label, zone) {
+    if (!label || !zone) return;
+
+    // Return an existing label in this zone to the label bank.
+    const existingLabelName = zone.dataset.placedLabel;
+
+    if (existingLabelName) {
+      const existingLabel = labels.find(
+        (item) => item.dataset.label === existingLabelName
+      );
+
+      existingLabel?.classList.remove("placed");
+    }
+
+    // Remove this label from any previous target.
+    zones.forEach((otherZone) => {
+      if (otherZone.dataset.placedLabel === label.dataset.label) {
+        otherZone.textContent = "";
+        delete otherZone.dataset.placedLabel;
+        otherZone.classList.remove("correct", "incorrect");
+      }
+    });
+
+    zone.textContent = label.textContent;
+    zone.dataset.placedLabel = label.dataset.label;
+
+    label.classList.add("placed");
+    label.classList.remove("selected");
+
+    selectedLabel = null;
+    feedback.textContent = "";
+    zone.classList.remove("correct", "incorrect");
+  }
+
+  labels.forEach((label) => {
+    label.addEventListener("click", () => {
+      if (!label.classList.contains("placed")) {
+        selectLabel(label);
+      }
+    });
+
+    label.addEventListener("dragstart", (event) => {
+      draggedLabel = label;
+      event.dataTransfer.setData("text/plain", label.dataset.label);
+      event.dataTransfer.effectAllowed = "move";
+    });
+
+    label.addEventListener("dragend", () => {
+      draggedLabel = null;
+    });
+  });
+
+  zones.forEach((zone) => {
+    zone.addEventListener("click", () => {
+      if (selectedLabel) {
+        placeLabel(selectedLabel, zone);
+      }
+    });
+
+    zone.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      zone.classList.add("drag-over");
+    });
+
+    zone.addEventListener("dragleave", () => {
+      zone.classList.remove("drag-over");
+    });
+
+    zone.addEventListener("drop", (event) => {
+      event.preventDefault();
+      zone.classList.remove("drag-over");
+
+      const labelName = event.dataTransfer.getData("text/plain");
+
+      const label =
+        draggedLabel ||
+        labels.find((item) => item.dataset.label === labelName);
+
+      placeLabel(label, zone);
+    });
+  });
+
+  checkButton.addEventListener("click", () => {
+    let correctCount = 0;
+
+    zones.forEach((zone) => {
+      const isCorrect =
+        zone.dataset.placedLabel === zone.dataset.correctLabel;
+
+      zone.classList.toggle("correct", isCorrect);
+      zone.classList.toggle(
+        "incorrect",
+        Boolean(zone.dataset.placedLabel) && !isCorrect
+      );
+
+      if (isCorrect) correctCount += 1;
+    });
+
+    if (correctCount === zones.length) {
+      feedback.textContent = "Correct! All four GitHub features are labeled.";
+    } else {
+      feedback.textContent =
+        `${correctCount} of ${zones.length} labels are correct.`;
+    }
+  });
+
+  resetButton.addEventListener("click", () => {
+    labels.forEach((label) => {
+      label.classList.remove("selected", "placed");
+    });
+
+    zones.forEach((zone) => {
+      zone.textContent = "";
+      delete zone.dataset.placedLabel;
+      zone.classList.remove("correct", "incorrect", "drag-over");
+    });
+
+    selectedLabel = null;
+    draggedLabel = null;
+    feedback.textContent = "";
+  });
+});
+
+document.querySelectorAll(".git-github-sort-slide").forEach((activity) => {
+  const itemBank = activity.querySelector(".git-github-item-bank");
+  const items = [...activity.querySelectorAll(".git-github-sort-item")];
+  const categories = [...activity.querySelectorAll(".git-github-category")];
+  const checkButton = activity.querySelector(".git-github-check");
+  const resetButton = activity.querySelector(".git-github-reset");
+  const feedback = activity.querySelector(".git-github-feedback");
+
+  let selectedItem = null;
+  let draggedItem = null;
+
+  function clearSelection() {
+    items.forEach((item) => item.classList.remove("selected"));
+    selectedItem = null;
+  }
+
+  function selectItem(item) {
+    clearSelection();
+    selectedItem = item;
+    item.classList.add("selected");
+  }
+
+  function placeItem(item, category) {
+    if (!item || !category) return;
+
+    const dropArea = category.querySelector(".git-github-drop-area");
+
+    dropArea.appendChild(item);
+    item.dataset.currentCategory = category.dataset.sortCategory;
+
+    item.classList.remove("selected", "correct", "incorrect");
+    selectedItem = null;
+    feedback.textContent = "";
+  }
+
+  items.forEach((item) => {
+    item.addEventListener("click", () => {
+      selectItem(item);
+    });
+
+    item.addEventListener("dragstart", (event) => {
+      draggedItem = item;
+      event.dataTransfer.setData("text/plain", item.textContent.trim());
+      event.dataTransfer.effectAllowed = "move";
+    });
+
+    item.addEventListener("dragend", () => {
+      draggedItem = null;
+    });
+  });
+
+  categories.forEach((category) => {
+    category.addEventListener("click", (event) => {
+      if (
+        selectedItem &&
+        !event.target.classList.contains("git-github-sort-item")
+      ) {
+        placeItem(selectedItem, category);
+      }
+    });
+
+    category.addEventListener("keydown", (event) => {
+      if ((event.key === "Enter" || event.key === " ") && selectedItem) {
+        event.preventDefault();
+        placeItem(selectedItem, category);
+      }
+    });
+
+    category.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      category.classList.add("drag-over");
+    });
+
+    category.addEventListener("dragleave", () => {
+      category.classList.remove("drag-over");
+    });
+
+    category.addEventListener("drop", (event) => {
+      event.preventDefault();
+      category.classList.remove("drag-over");
+
+      if (draggedItem) {
+        placeItem(draggedItem, category);
+      }
+    });
+  });
+
+  checkButton.addEventListener("click", () => {
+    let correctCount = 0;
+    let placedCount = 0;
+
+    items.forEach((item) => {
+      const currentCategory = item.dataset.currentCategory;
+      const correctCategory = item.dataset.correctCategory;
+      const isPlaced = Boolean(currentCategory);
+      const isCorrect = currentCategory === correctCategory;
+
+      if (isPlaced) placedCount += 1;
+      if (isCorrect) correctCount += 1;
+
+      item.classList.toggle("correct", isCorrect);
+      item.classList.toggle("incorrect", isPlaced && !isCorrect);
+    });
+
+    if (placedCount < items.length) {
+      feedback.textContent =
+        `Place all ${items.length} statements before checking.`;
+    } else if (correctCount === items.length) {
+      feedback.textContent =
+        "Correct! Git tracks versions, while GitHub helps store and collaborate on Git repositories.";
+    } else {
+      feedback.textContent =
+        `${correctCount} of ${items.length} statements are correct.`;
+    }
+  });
+
+  resetButton.addEventListener("click", () => {
+    items.forEach((item) => {
+      itemBank.appendChild(item);
+      delete item.dataset.currentCategory;
+      item.classList.remove("selected", "correct", "incorrect");
+    });
+
+    categories.forEach((category) => {
+      category.classList.remove("drag-over");
+    });
+
+    selectedItem = null;
+    draggedItem = null;
+    feedback.textContent = "";
+  });
+});
+
+document.querySelectorAll(".git-command-match-slide").forEach((activity) => {
+  const commands = [...activity.querySelectorAll(".git-match-command")];
+  const targets = [...activity.querySelectorAll(".git-definition-target")];
+  const checkButton = activity.querySelector(".git-match-check");
+  const resetButton = activity.querySelector(".git-match-reset");
+  const feedback = activity.querySelector(".git-match-feedback");
+
+  let selectedCommand = null;
+  let draggedCommand = null;
+
+  function clearSelection() {
+    commands.forEach((command) => command.classList.remove("selected"));
+    selectedCommand = null;
+  }
+
+  function selectCommand(command) {
+    clearSelection();
+    selectedCommand = command;
+    command.classList.add("selected");
+  }
+
+  function placeCommand(command, target) {
+    if (!command || !target) return;
+
+    const previousMatch = target.dataset.placedMatch;
+
+    if (previousMatch) {
+      const previousCommand = commands.find(
+        (item) => item.dataset.match === previousMatch
+      );
+
+      previousCommand?.classList.remove("placed");
+    }
+
+    targets.forEach((otherTarget) => {
+      if (otherTarget.dataset.placedMatch === command.dataset.match) {
+        delete otherTarget.dataset.placedMatch;
+        otherTarget.querySelector(".matched-command").textContent = "";
+        otherTarget.classList.remove("correct", "incorrect");
+      }
+    });
+
+    target.dataset.placedMatch = command.dataset.match;
+    target.querySelector(".matched-command").textContent =
+      command.textContent.trim();
+
+    command.classList.add("placed");
+    command.classList.remove("selected");
+
+    target.classList.remove("correct", "incorrect");
+    feedback.textContent = "";
+    selectedCommand = null;
+  }
+
+  commands.forEach((command) => {
+    command.addEventListener("click", () => {
+      if (!command.classList.contains("placed")) {
+        selectCommand(command);
+      }
+    });
+
+    command.addEventListener("dragstart", (event) => {
+      draggedCommand = command;
+      event.dataTransfer.setData("text/plain", command.dataset.match);
+      event.dataTransfer.effectAllowed = "move";
+    });
+
+    command.addEventListener("dragend", () => {
+      draggedCommand = null;
+    });
+  });
+
+  targets.forEach((target) => {
+    target.addEventListener("click", () => {
+      if (selectedCommand) {
+        placeCommand(selectedCommand, target);
+      }
+    });
+
+    target.addEventListener("dragover", (event) => {
+      event.preventDefault();
+      target.classList.add("drag-over");
+    });
+
+    target.addEventListener("dragleave", () => {
+      target.classList.remove("drag-over");
+    });
+
+    target.addEventListener("drop", (event) => {
+      event.preventDefault();
+      target.classList.remove("drag-over");
+
+      const matchName = event.dataTransfer.getData("text/plain");
+
+      const command =
+        draggedCommand ||
+        commands.find((item) => item.dataset.match === matchName);
+
+      placeCommand(command, target);
+    });
+  });
+
+  checkButton.addEventListener("click", () => {
+    let correctCount = 0;
+    let placedCount = 0;
+
+    targets.forEach((target) => {
+      const placedMatch = target.dataset.placedMatch;
+      const correctMatch = target.dataset.correctMatch;
+      const isPlaced = Boolean(placedMatch);
+      const isCorrect = placedMatch === correctMatch;
+
+      if (isPlaced) placedCount += 1;
+      if (isCorrect) correctCount += 1;
+
+      target.classList.toggle("correct", isCorrect);
+      target.classList.toggle("incorrect", isPlaced && !isCorrect);
+    });
+
+    if (placedCount < targets.length) {
+      feedback.textContent =
+        `Match all ${targets.length} commands before checking.`;
+    } else if (correctCount === targets.length) {
+      feedback.textContent =
+        "Correct! All Git commands match their definitions.";
+    } else {
+      feedback.textContent =
+        `${correctCount} of ${targets.length} matches are correct.`;
+    }
+  });
+
+  resetButton.addEventListener("click", () => {
+    commands.forEach((command) => {
+      command.classList.remove("selected", "placed");
+    });
+
+    targets.forEach((target) => {
+      delete target.dataset.placedMatch;
+      target.querySelector(".matched-command").textContent = "";
+      target.classList.remove("correct", "incorrect", "drag-over");
+    });
+
+    selectedCommand = null;
+    draggedCommand = null;
+    feedback.textContent = "";
+  });
+});

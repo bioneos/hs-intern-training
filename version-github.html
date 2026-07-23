@@ -1,0 +1,1333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BioNeos Intern Version Management and GitHub</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/bioneos.css">
+    <link rel="stylesheet" href="lib/css/monokai.css">
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>Version Management and GitHub</h1>
+          <div><img class="logo" src="images/logo-new.svg" alt="BioNeos logo"></div>
+          <p class="callout">A beginner module for high school interns learning how Git and GitHub track project history, support teamwork, and protect shared code.</p>
+        </section>
+
+        <section>
+          <h1 class="b">Learning Goals</h1>
+          <ol class="roadmap">
+            <li>Explain what Git and GitHub do.</li>
+            <li>Describe repositories, commits, branches, forks, and pull requests.</li>
+            <li>Use the basic Git workflow: status, add, commit, pull, and push.</li>
+            <li>Understand the BioNeos feature-branch workflow.</li>
+          </ol>
+        </section>
+
+        <section>
+          <section>
+            <h1>Git vs. <span class="b">GitHub</span></h1>
+            <div class="grid">
+              <div class="card teal">
+                <h3>Git</h3>
+                <p>Version-control software installed on your computer. It tracks changes and saves checkpoints called commits.</p>
+<ul>
+  <li>Version-control software installed on a computer</li>
+  <li>Tracks changes made to project files</li>
+  <li>Creates commits that save snapshots of work</li>
+  <li>Supports branches and merging</li>
+  <li>Can be used without an internet connection</li>
+  <li>Works through command-line tools or desktop applications</li>
+  <li>Stores repository history locally</li>
+</ul>
+              </div>
+              <div class="card purple">
+                <h3>GitHub</h3>
+                <p>A web platform that hosts Git repositories so teams can share, review, and collaborate on code.</p>
+<ul>
+  <li>An online platform that hosts Git repositories</li>
+  <li>Makes repositories accessible through the internet</li>
+  <li>Supports collaboration between developers</li>
+  <li>Adds pull requests and code-review tools</li>
+  <li>Includes issues, projects, actions, and team-management features</li>
+  <li>Provides backups and remote access to repositories</li>
+  <li>Can publish websites through GitHub Pages</li>
+</ul>
+              </div>
+            </div>
+            <p class="callout verify">Git can be used by itself, but GitHub makes collaboration much easier.</p>
+            <p><a class="task-link b" href="https://docs.github.com/en/get-started/start-your-journey/about-github-and-git">GitHub: About Git and GitHub</a></p>
+          </section>
+          <section>
+            <h1>Why We Use Git</h1>
+            <div class="grid three">
+              <div class="card teal"><h3>Track</h3><p>See what changed, when it changed, and who changed it.</p></div>
+              <div class="card purple"><h3>Record</h3><p>Save meaningful checkpoints with commit messages.</p></div>
+              <div class="card yellow"><h3>Restore</h3><p>Return to earlier versions when something breaks.</p></div>
+              <div class="card red"><h3>Experiment</h3><p>Try ideas without damaging the shared project.</p></div>
+              <div class="card teal"><h3>Analyze</h3><p>Review history to understand how a project developed.</p></div>
+              <div class="card purple"><h3>Merge</h3><p>Combine work from multiple contributors.</p></div>
+            </div>
+          </section>
+          <section>
+  <h1>Why We Use GitHub</h1>
+
+  <div class="grid three">
+    <div class="card teal">
+      <h3>Share</h3>
+      <p>Store repositories online so team members can access the project.</p>
+    </div>
+
+    <div class="card purple">
+      <h3>Collaborate</h3>
+      <p>Allow multiple developers to contribute to the same project.</p>
+    </div>
+
+    <div class="card yellow">
+      <h3>Review</h3>
+      <p>Use pull requests to discuss, review, and approve changes.</p>
+    </div>
+
+    <div class="card red">
+      <h3>Organize</h3>
+      <p>Track bugs, tasks, and ideas with Issues and Projects.</p>
+    </div>
+
+    <div class="card teal">
+      <h3>Back Up</h3>
+      <p>Keep a remote copy of the repository and its history.</p>
+    </div>
+
+    <div class="card purple">
+      <h3>Publish</h3>
+      <p>Share websites and project documentation with GitHub Pages.</p>
+    </div>
+  </div>
+</section>
+          <section class="git-github-sort-slide">
+  <h2>Git or GitHub?</h2>
+
+  <p class="instructions">
+    Drag each statement into the correct category, or click a statement and then click a category.
+  </p>
+
+  <div class="git-github-sort">
+    <div class="git-github-item-bank" aria-label="Statements to sort">
+
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="git"
+>
+  Can be used without an internet connection
+</button>
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="github"
+>
+  Includes Issues, Projects, Actions, and team-management features
+</button>
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="git"
+>
+  Tracks changes made to project files
+</button>
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="github"
+>
+  An online platform that hosts Git repositories
+</button>
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="git"
+>
+  Creates commits that save snapshots of work
+</button>
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="github"
+>
+  Can publish websites through GitHub Pages
+</button>
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="github"
+>
+  Supports collaboration between developers
+</button>
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="git"
+>
+  Supports branches and merging
+</button>
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="github"
+>
+  Provides backups and remote access to repositories
+</button>
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="git"
+>
+  Version-control software installed on a computer
+</button>
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="git"
+>
+  Works through command-line tools or desktop applications
+</button>
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="git"
+>
+  Stores repository history locally
+</button>
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="github"
+>
+  Adds pull requests and code-review tools
+</button>
+
+
+<button
+  class="git-github-sort-item"
+  type="button"
+  draggable="true"
+  data-correct-category="github"
+>
+  Makes repositories accessible through the internet
+</button>
+
+
+    </div>
+
+    <div class="git-github-categories">
+      <article
+        class="git-github-category git-category"
+        data-sort-category="git"
+        tabindex="0"
+      >
+        <h3>Git</h3>
+        <p>A version-control tool.</p>
+        <div class="git-github-drop-area"></div>
+      </article>
+
+      <article
+        class="git-github-category github-category"
+        data-sort-category="github"
+        tabindex="0"
+      >
+        <h3>GitHub</h3>
+        <p>An online platform built around Git repositories.</p>
+        <div class="git-github-drop-area"></div>
+      </article>
+    </div>
+  </div>
+
+  <div class="git-github-controls">
+    <button class="git-github-check" type="button">Check Answers</button>
+    <button class="git-github-reset" type="button">Reset</button>
+  </div>
+
+  <p class="git-github-feedback" aria-live="polite"></p>
+</section>
+        </section>
+
+<section>
+  <!-- Overview slide -->
+  <section>
+    <h1>Git Commands</h1>
+    <p class="introHeader">
+      Where to Type Git Commands 
+    </p>
+    <div class="card"><span class="b">Windows:</span>
+<ul>
+  <li>Command Prompt (cmd) </li>
+<li>Windows PowerShell</li>
+<li>Git Bash</li>
+  </ul></div>
+  <br>
+  <div class="card yellow">   <span class="y"> macOS & Linux:</span>
+<ul>
+  <li>Terminal application</li>
+  </ul></div>
+  <br>
+<div class="card purple"><span class="p">Integrated Development Environments (IDEs):</span>
+<ul>
+<li>Visual Studio Code</li>
+<li>IntelliJ IDEA</li>
+<li>PyCharm</li>
+</ul></div>
+  </section>
+
+  <!-- git init -->
+  <section>
+    <h2><span class="b">git init</span></h2>
+
+    <div class="card teal">
+      <h3>Start a New Repository</h3>
+      <p>
+        Initializes a new Git repository in the current folder.
+      </p>
+
+      <pre><code class="language-bash">git init</code></pre>
+    </div>
+
+    <p class="callout verify">
+      Use this when a project folder is not already connected to Git.
+    </p>
+  </section>
+
+  <!-- git clone -->
+  <section>
+    <h2><span class="p">git clone</span></h2>
+
+    <div class="card purple">
+      <h3>Copy an Existing Repository</h3>
+      <p>
+        Downloads a remote repository and creates a local copy on your computer.
+      </p>
+
+      <pre><code class="language-bash">git clone https://github.com/username/repository.git</code></pre>
+    </div>
+
+    <p class="callout">
+      Use this when the project already exists on GitHub or another remote service.
+    </p>
+  </section>
+
+  <!-- git status -->
+  <section>
+    <h2><span class="y">git status</span></h2>
+
+    <div class="card yellow">
+      <h3>Check the Current State</h3>
+      <p>
+        Shows which files have changed, which files are staged, and which files are untracked.
+      </p>
+
+      <pre><code class="language-bash">git status</code></pre>
+    </div>
+
+    <p class="callout verify">
+      Run this frequently so you know what Git sees before committing.
+    </p>
+  </section>
+
+  <!-- git add -->
+  <section>
+    <h2><span class="r">git add</span></h2>
+
+    <div class="card red">
+      <h3>Stage Changes</h3>
+      <p>
+        Selects changes that will be included in the next commit.
+      </p>
+
+      <pre><code class="language-bash">git add filename.html</code></pre>
+
+      <pre><code class="language-bash">git add .</code></pre>
+    </div>
+
+    <p class="callout">
+      The first command stages one file. The second stages all current changes.
+    </p>
+  </section>
+
+  <!-- git commit -->
+  <section>
+    <h2><span class="b">git commit</span></h2>
+
+    <div class="card teal">
+      <h3>Save a Checkpoint</h3>
+      <p>
+        Creates a new commit containing the changes that have been staged.
+      </p>
+
+      <pre><code class="language-bash">git commit -m "Add hydration dashboard"</code></pre>
+    </div>
+
+    <p class="callout verify">
+      A good commit message briefly explains what changed.
+    </p>
+  </section>
+
+  <!-- git log -->
+  <section>
+    <h2><span class="p">git log</span></h2>
+
+    <div class="card purple">
+      <h3>Review Project History</h3>
+      <p>
+        Displays previous commits, including messages, authors, dates, and identifiers.
+      </p>
+
+      <pre><code class="language-bash">git log</code></pre>
+
+      <pre><code class="language-bash">git log --oneline</code></pre>
+    </div>
+
+    <p class="callout">
+      The <code>--oneline</code> option creates a shorter, easier-to-scan history.
+    </p>
+  </section>
+
+  <!-- git branch -->
+  <section>
+    <h2><span class="y">git branch</span></h2>
+
+    <div class="card yellow">
+      <h3>Create or View Branches</h3>
+      <p>
+        Branches allow developers to work on different versions or features without immediately changing the main project.
+      </p>
+
+      <pre><code class="language-bash">git branch</code></pre>
+
+      <pre><code class="language-bash">git branch new-feature</code></pre>
+    </div>
+
+    <p class="callout verify">
+      The first command lists branches. The second creates a new branch.
+    </p>
+  </section>
+
+  <!-- git checkout -->
+  <section>
+    <h2><span class="r">git checkout</span></h2>
+
+    <div class="card red">
+      <h3>Move to Another Branch</h3>
+      <p>
+        Switches the working folder to a specified branch or commit.
+      </p>
+
+      <pre><code class="language-bash">git checkout new-feature</code></pre>
+    </div>
+
+    <p class="callout">
+      A newer alternative for switching branches is:
+    </p>
+
+    <pre><code class="language-bash">git switch new-feature</code></pre>
+  </section>
+
+  <!-- git merge -->
+  <section>
+    <h2><span class="b">git merge</span></h2>
+
+    <div class="card teal">
+      <h3>Combine Branches</h3>
+      <p>
+        Brings changes from one branch into the branch you are currently using.
+      </p>
+
+      <pre><code class="language-bash">git switch main
+git merge new-feature</code></pre>
+    </div>
+
+    <p class="callout verify">
+      Switch to the destination branch before running the merge.
+    </p>
+  </section>
+
+  <!-- git pull -->
+  <section>
+    <h2><span class="p">git pull</span></h2>
+
+    <div class="card purple">
+      <h3>Download Remote Changes</h3>
+      <p>
+        Downloads new changes from the remote repository and merges them into the current local branch.
+      </p>
+
+      <pre><code class="language-bash">git pull</code></pre>
+    </div>
+
+    <p class="callout">
+      Pull before beginning work so your local project is up to date.
+    </p>
+  </section>
+
+  <!-- git push -->
+  <section>
+    <h2><span class="y">git push</span></h2>
+
+    <div class="card yellow">
+      <h3>Upload Local Commits</h3>
+      <p>
+        Sends committed changes from the local repository to the remote repository.
+      </p>
+
+      <pre><code class="language-bash">git push</code></pre>
+    </div>
+
+    <p class="callout verify">
+      Only committed changes are uploaded. Uncommitted edits remain on your computer.
+    </p>
+  </section>
+  <!-- git status -->
+  <section>
+    <h2><span class="b">git status</span></h2>
+
+    <div class="card teal">
+      <h3>Check Your Working Directory</h3>
+
+      <p>
+        Shows which files have changed, which files are staged, and which files are untracked.
+      </p>
+
+      <pre><code class="language-bash">git status</code></pre>
+    </div>
+
+    <p class="callout verify">
+      Run this frequently to understand the current state of your repository.
+    </p>
+  </section>
+
+  <!-- git log -->
+  <section>
+    <h2><span class="p">git log</span></h2>
+
+    <div class="card purple">
+      <h3>View Commit History</h3>
+
+      <p>
+        Displays previous commits, including commit messages, authors, dates, and commit hashes.
+      </p>
+
+      <pre><code class="language-bash">git log</code></pre>
+
+      <pre><code class="language-bash">git log --oneline</code></pre>
+    </div>
+
+    <p class="callout">
+      The <code>--oneline</code> option creates a shorter, easier-to-read history.
+    </p>
+  </section>
+
+  <!-- git blame -->
+  <section>
+    <h2><span class="y">git blame</span></h2>
+
+    <div class="card yellow">
+      <h3>See Who Changed Each Line</h3>
+
+      <p>
+        Shows the commit hash, author, timestamp, and content associated with each line in a file.
+      </p>
+
+      <pre><code class="language-bash">git blame filename.js</code></pre>
+    </div>
+
+    <p class="callout verify">
+      Use this to understand when and why a particular line was changed.
+    </p>
+  </section>
+
+  <!-- git restore -->
+  <section>
+    <h2><span class="r">git restore</span></h2>
+
+    <div class="card red">
+      <h3>Discard Uncommitted Changes</h3>
+
+      <p>
+        Restores a file in your working directory to its last committed version.
+      </p>
+
+      <pre><code class="language-bash">git restore filename.js</code></pre>
+    </div>
+
+    <p class="callout">
+      This permanently removes uncommitted changes from the selected file.
+    </p>
+  </section>
+
+  <!-- git revert -->
+  <section>
+    <h2><span class="b">git revert</span></h2>
+
+    <div class="card teal">
+      <h3>Safely Undo a Commit</h3>
+
+      <p>
+        Creates a new commit that reverses the changes from an earlier commit without rewriting project history.
+      </p>
+
+      <pre><code class="language-bash">git revert COMMIT_HASH</code></pre>
+    </div>
+
+    <p class="callout verify">
+      This is usually the safest option for undoing work that has already been shared.
+    </p>
+  </section>
+
+  <!-- git reset -->
+  <section>
+    <h2><span class="p">git reset</span></h2>
+
+    <div class="card purple">
+      <h3>Move the Branch and HEAD</h3>
+
+      <p>
+        Moves the current branch and HEAD pointer to a selected commit.
+      </p>
+
+      <pre><code class="language-bash">git reset --mixed COMMIT_HASH</code></pre>
+    </div>
+
+    <div class="grid three">
+      <div class="card teal">
+        <h3>Soft</h3>
+        <p>Keeps changes staged.</p>
+        <pre><code class="language-bash">git reset --soft COMMIT_HASH</code></pre>
+      </div>
+
+      <div class="card yellow">
+        <h3>Mixed</h3>
+        <p>Keeps changes but removes them from staging.</p>
+        <pre><code class="language-bash">git reset --mixed COMMIT_HASH</code></pre>
+      </div>
+
+      <div class="card red">
+        <h3>Hard</h3>
+        <p>Deletes later commits and working-directory changes.</p>
+        <pre><code class="language-bash">git reset --hard COMMIT_HASH</code></pre>
+      </div>
+    </div>
+  </section>
+<section class="git-command-match-slide">
+  <h2>Match the Git Commands</h2>
+
+  <p class="instructions">
+    Match each Git command with its basic definition.
+  </p>
+
+  <div class="git-match-layout">
+    <!-- Command bank -->
+    <div class="git-command-bank" aria-label="Git commands">
+      <button class="git-match-command" draggable="true" data-match="push" type="button">
+        git push
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="status" type="button">
+        git status
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="revert" type="button">
+        git revert
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="clone" type="button">
+        git clone
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="branch" type="button">
+        git branch
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="blame" type="button">
+        git blame
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="commit" type="button">
+        git commit
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="pull" type="button">
+        git pull
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="restore" type="button">
+        git restore
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="init" type="button">
+        git init
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="merge" type="button">
+        git merge
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="add" type="button">
+        git add
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="reset" type="button">
+        git reset
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="switch" type="button">
+        git checkout / git switch
+      </button>
+
+      <button class="git-match-command" draggable="true" data-match="log" type="button">
+        git log
+      </button>
+    </div>
+
+    <!-- Definition targets -->
+    <div class="git-definition-grid">
+      <button class="git-definition-target" data-correct-match="clone" type="button">
+        <span class="matched-command"></span>
+        <span>Creates a local copy of an existing remote repository.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="status" type="button">
+        <span class="matched-command"></span>
+        <span>Shows changed, staged, and untracked files.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="branch" type="button">
+        <span class="matched-command"></span>
+        <span>Lists branches or creates a new branch.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="push" type="button">
+        <span class="matched-command"></span>
+        <span>Uploads local commits to a remote repository.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="restore" type="button">
+        <span class="matched-command"></span>
+        <span>Discards uncommitted changes in a file.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="commit" type="button">
+        <span class="matched-command"></span>
+        <span>Saves staged changes as a new project checkpoint.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="blame" type="button">
+        <span class="matched-command"></span>
+        <span>Shows who last changed each line of a file.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="pull" type="button">
+        <span class="matched-command"></span>
+        <span>Downloads and combines changes from a remote repository.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="init" type="button">
+        <span class="matched-command"></span>
+        <span>Creates a new Git repository in the current folder.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="merge" type="button">
+        <span class="matched-command"></span>
+        <span>Combines changes from one branch into another.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="revert" type="button">
+        <span class="matched-command"></span>
+        <span>Creates a new commit that safely reverses an earlier commit.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="add" type="button">
+        <span class="matched-command"></span>
+        <span>Stages changes for the next commit.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="switch" type="button">
+        <span class="matched-command"></span>
+        <span>Moves the working directory to another branch.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="reset" type="button">
+        <span class="matched-command"></span>
+        <span>Moves the current branch and HEAD to another commit.</span>
+      </button>
+
+      <button class="git-definition-target" data-correct-match="log" type="button">
+        <span class="matched-command"></span>
+        <span>Displays the repository’s commit history.</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="git-match-controls">
+    <button class="git-match-check" type="button">Check Answers</button>
+    <button class="git-match-reset" type="button">Reset</button>
+  </div>
+
+  <p class="git-match-feedback" aria-live="polite"></p>
+</section>
+
+
+
+</section>
+  <!-- Workflow review -->
+  <section>
+    <h2>Git Commmand Contribution Workflow</h2>
+    <img
+      class="github-image-activity"
+      src="images/git-workflow/Git-Workflow.png"
+      alt="GitHub Workflow"
+    >
+  
+</section>
+
+        <section>
+          <section>
+            <h1>GitHub <span class="p">Repositories</span></h1>
+            <p>A repository, or repo, is a project folder tracked by Git. 
+              GitHub is a online platform for creating, managing, and sharing repositories. 
+              It uses Git to provide distributed version control, which is form of version control 
+              in which the complete codebase, including its full history, is mirrored on every developer's computer. 
+              <br><br>
+              The repo is held in 2 places.</p>
+            <div class="grid">
+              <div class="card purple">
+                <h3>Local Repo</h3>
+                <p>The copy on your computer where you edit and test files.</p>
+              </div>
+              <div class="card teal">
+                <h3>Remote Repo</h3>
+                <p>The online copy hosted on GitHub for sharing and collaboration.</p>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h1>What Is Inside a Repo?</h1>
+            <ul class="checklist compact-list">
+              <li>Source code files</li>
+              <li>Images and other assets</li>
+              <li>Documentation, often including a <code>README.md</code></li>
+              <li>Commit history</li>
+              <li>Branches</li>
+              <li>Issues and pull requests</li>
+            </ul>
+          </section>
+  </section>
+
+
+
+  <section>
+  <section>
+    <h1>Navigating GitHub</h1>
+
+    <img
+      class="github-tutorial-media"
+      src="images/github-interface/GitHub.png"
+      alt="GitHub repository page"
+    >
+  </section>
+
+  <section>
+    <h2>Where the <span class="b">Code</span> Is</h2>
+    <div class="grid">
+      <div class="card teal">
+        <h3>Repository Files</h3>
+        <p>
+          The file list contains the project code, images,
+          documentation, and other assets for the selected branch.
+        </p>
+      </div>
+      <div class="card purple">
+        <h3>Code Button</h3>
+        <p>
+          The green <strong>Code</strong> button opens the clone and
+          download options.
+        </p>
+      </div>
+    </div>
+    <img
+      class="github-tutorial-media"
+      src="images/github-interface/GitHub-Code.png"
+      alt="Clone and Download"
+    >
+  </section>
+
+    <section>
+    <h2>Where the <span class="white">Documentation</span> Is</h2>
+      <div class="card white">
+        <h3>Read Me File</h3>
+        <p>
+        At the bottom of repos you can usually find a README.md file with information about the repo.
+        </p>
+      </div>
+    <img
+      class="github-tutorial-media"
+      src="images/github-interface/GitHub-Source-Documentation.png"
+      alt="Documentation"
+    >
+  </section>
+
+<section>
+    <h2>Where <span class="y">Branches</span> Are</h2>
+
+    <p>
+      The branch selector shows which version of the repository you are
+      viewing and lets you switch branches.
+    </p>
+
+    <img
+      class="github-tutorial-media"
+      src="images/github-interface/GitHub-Branches.png"
+     alt="GitHub Branches"
+    >
+
+    <p class="github-caption">
+      In this example, the current branch is <code>main</code>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Where <span class="r">Commits</span> Are</h2>
+
+    <p>
+      The commit count opens the change history for the branch you are
+      viewing.
+    </p>
+
+    <img
+      class="github-tutorial-media"
+      src="images/github-interface/GitHub-Commits.png"
+      alt="Commits"
+    >
+
+    <p class="github-caption">
+      Commit history shows what changed, who changed it, and the message
+      used to describe the change.
+    </p>
+  </section>
+
+  <section>
+    <h2>Clone and Download Links</h2>
+
+    <p>
+      Click the green <strong>Code</strong> button to open these options.
+    </p>
+
+    <img
+      class="github-tutorial-media"
+      src="images/github-interface/GitHub-Clone-Zip.png"
+      alt="Clone and Zip"
+    >
+
+    <div class="grid">
+      <div class="card teal">
+        <h3>Clone</h3>
+        <p>
+          Copy the HTTPS URL when you want a Git-connected local copy.
+        </p>
+      </div>
+
+      <div class="card yellow">
+        <h3>Download ZIP</h3>
+        <p>
+          Use this when you only need the files and do not need Git
+          history or syncing.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="github-label-slide">
+  <h2>Place the Correct Repository Features</h2>
+  <div class="github-label-bank" aria-label="Available labels">
+    
+    <button
+  class="github-drag-label"
+  draggable="true"
+  data-label="branches"
+  type="button"
+>
+  Branches
+</button>
+    
+    <button
+      class="github-drag-label"
+      draggable="true"
+      data-label="code"
+      type="button"
+    >
+      Code Button
+    </button>
+
+    <button
+      class="github-drag-label"
+      draggable="true"
+      data-label="files"
+      type="button"
+    >
+      Repository Files
+    </button>
+
+    <button
+      class="github-drag-label"
+      draggable="true"
+      data-label="documentation"
+      type="button"
+    >
+      Documentation
+    </button>
+
+    <button
+      class="github-drag-label"
+      draggable="true"
+      data-label="commits"
+      type="button"
+    >
+      Commits
+    </button>
+  </div>
+
+<div class="github-image-activity">
+  <img
+    src="images/github-repository-labeling.png"
+    alt="GitHub repository page with five highlighted target areas"
+  >
+
+  <button
+    class="github-drop-zone branches-zone"
+    data-correct-label="branches"
+    type="button"
+    aria-label="Yellow target area"
+  ></button>
+
+  <button
+    class="github-drop-zone code-zone"
+    data-correct-label="code"
+    type="button"
+    aria-label="Purple target area"
+  ></button>
+
+  <button
+    class="github-drop-zone commits-zone"
+    data-correct-label="commits"
+    type="button"
+    aria-label="Red target area"
+  ></button>
+
+  <button
+    class="github-drop-zone files-zone"
+    data-correct-label="files"
+    type="button"
+    aria-label="Green target area"
+  ></button>
+
+  <button
+    class="github-drop-zone documentation-zone"
+    data-correct-label="documentation"
+    type="button"
+    aria-label="White target area"
+  ></button>
+  </div>
+
+  <div class="github-activity-controls">
+    <button class="github-check-button" type="button">Check Answers</button>
+    <button class="github-reset-button" type="button">Reset</button>
+  </div>
+
+  <p class="github-activity-feedback" aria-live="polite"></p>
+</section>
+</section>
+
+
+        <section>
+          <section>
+            <h1>Initial Repos</h1>
+            <div class="grid">
+              <div class="card purple">
+                <h3>Create</h3>
+                <p>A new repo can be created for a project that can then be shared with others.</p>
+              </div>
+              <div class="card teal">
+                <h3>Clone</h3>
+                <p>A copy of a project can be made that can be collaborated on through git.</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h1>Creating a New Repo</h1>
+            <p>You can create a new repo through either a terminal command or through a browser.</p>
+            <div class="grid">
+              <div class="card yellow">
+                <h3>Start New (Terminal)</h3>
+                <pre><code># 1. Navigate to your project folder
+cd /path/to/your/project
+# 2. Initialize the Git repository
+git init
+# 3. Stage all current files
+git add .
+# 4. Create your first commit
+git commit -m "Initial commit"</code></pre>
+              </div>
+            <div class="card teal">
+                <h3>Start New (Browser)</h3>
+                    <img
+      class="github-tutorial-media"
+      src="images/github-interface/new-repo.png"
+      alt="New Repo"
+    >
+              </div>
+          </section>
+
+<section>
+            <h1>Cloning a Repo</h1>
+            <p>You can create a local copy of a repo through by cloning it.</p>
+            <div class="grid">
+      <div class="card teal">
+                <h3>Copy the clone url address from GitHub</h3>
+                    <img
+      class="github-tutorial-media"
+      src="images/github-interface/clone-url.png"
+      alt="New Repo"
+    >
+              </div>
+              <div class="card yellow">
+                <h3>Start New (Terminal)</h3>
+                <pre><code># 1. Navigate to your where you want the repo
+cd /path/to/your/repo-location
+# 2. Clone the repo
+git clone "insert repo url"
+# 3. (Optional) Navigate to your new repo location
+cd "repo-name"
+# 4. (Optional) Verify files are present
+ls</code></pre>
+              </div>
+          
+</section>
+</section>
+        
+
+        <section>
+          <section>
+            <h1><span class="y">Forking</span></h1>
+            <p>A fork creates a copy of someone else’s GitHub repository under your own GitHub account.</p>
+            <ul class="checklist compact-list">
+              <li>Use a fork when you do not have direct permission to push to the original repo.</li>
+              <li>Make changes safely in your copy.</li>
+              <li>Propose changes back with a pull request.</li>
+            </ul>
+          </section>
+          <section>
+            <h1>Forking Workflow</h1>
+            <ol class="roadmap">
+              <li>Open the original repository on GitHub.</li>
+              <li>Select <strong>Fork</strong>.</li>
+              <li>Clone your fork to your computer.</li>
+              <li>Create a feature branch.</li>
+              <li>Push your branch to your fork.</li>
+              <li>Open a pull request to the original repo.</li>
+            </ol>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1><span class="b">Branching</span></h1>
+            <p>A branch is a separate line of development that lets you work without immediately changing the shared project.</p>
+            <pre><code class="language-bash">git branch
+git switch -c feature-your-name-task</code></pre>
+            <p class="callout verify">Use clear branch names so others can understand the purpose of your work.</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Make and Commit Changes</h1>
+            <ol class="roadmap">
+              <li>Edit and test the project.</li>
+              <li>Run <code>git status</code>.</li>
+              <li>Stage changes with <code>git add .</code>.</li>
+              <li>Commit with a clear message.</li>
+            </ol>
+          </section>
+          <section>
+            <h1>Commit Example</h1>
+            <pre><code class="language-bash">git status
+git add .
+git commit -m "Add capybara image button"</code></pre>
+            <div class="grid">
+              <div class="card teal"><h3>Good</h3><p><code>Fix broken image path</code></p></div>
+              <div class="card red"><h3>Avoid</h3><p><code>stuff</code>, <code>changes</code>, <code>fixed it</code></p></div>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1><span class="b">Pull</span> and <span class="y">Push</span></h1>
+            <div class="grid">
+              <div class="card teal">
+                <h3>Pull</h3>
+                <p><code>git pull</code> downloads changes from GitHub and combines them with your local branch.</p>
+              </div>
+              <div class="card yellow">
+                <h3>Push</h3>
+                <p><code>git push</code> uploads your local commits to GitHub.</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h1>Push a Feature Branch</h1>
+            <pre><code class="language-bash">git push -u origin feature-your-name-task</code></pre>
+            <p class="callout">The first push publishes your branch on GitHub. It does not automatically merge your changes into <code>devel</code>.</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Pull Requests</h1>
+            <p>A pull request asks project maintainers to review and merge your branch into another branch.</p>
+            <span class="workflow-line">feature branch → devel</span>
+            <p><a class="task-link b" href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">GitHub: About pull requests</a></p>
+          </section>
+
+          <section>
+            <h1>Good Pull Requests Include</h1>
+            <ul class="checklist compact-list">
+              <li>What changed.</li>
+              <li>Why the change was needed.</li>
+              <li>How the change was tested.</li>
+              <li>Screenshots for visible webpage changes.</li>
+              <li>Any problems or unfinished work.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h1>PR Process</h1>
+            <ol class="roadmap">
+              <li>Push the feature branch.</li>
+              <li>Open GitHub and select <strong>Compare &amp; pull request</strong>.</li>
+              <li>Confirm the destination branch is <code>devel</code>.</li>
+              <li>Describe and submit the pull request.</li>
+              <li>Respond to review comments.</li>
+            </ol>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Merge Conflicts</h1>
+            <p>A merge conflict happens when Git cannot automatically combine changes, often because two branches edited the same lines.</p>
+            <pre><code class="language-text">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Current branch content
+=======
+Incoming branch content
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-branch</code></pre>
+          </section>
+
+          <section class="center">
+            <h1>Conflict Example</h1>
+           
+          </section>
+
+          <section>
+            <h1>Resolve a Conflict</h1>
+            <ol class="roadmap">
+              <li>Open the conflicting file.</li>
+              <li>Compare both versions.</li>
+              <li>Decide what content should remain.</li>
+              <li>Remove the conflict markers.</li>
+              <li>Test the file.</li>
+              <li>Stage, commit, and push the resolution.</li>
+            </ol>
+          </section>
+        </section>
+          <section>
+            <h1>Practice Activity</h1>
+            <ol class="roadmap compact-list">
+              <li>Clone or fork a practice repository.</li>
+              <li>Open it in VS Code.</li>
+              <li>Create a branch with your name.</li>
+              <li>Add or edit a small file.</li>
+              <li>Run <code>git status</code>.</li>
+              <li>Stage and commit your change.</li>
+              <li>Push the branch.</li>
+              <li>Open a pull request.</li>
+            </ol>
+          </section>
+
+      
+        <section class="center">
+          <h1><a href="index.html#/overview-slide">Return to modules</a></h1>
+          <div><img src="images/logo-new.svg" alt="BioNeos logo" style="height:110px; margin-top: 0.5em;"></div>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+    <script>
+      // Ensure every external task link opens in a new tab.
+      document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      });
+
+      Reveal.initialize({
+        progress: true,
+        history: true,
+        slideNumber: true,
+        transition: 'slide',
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

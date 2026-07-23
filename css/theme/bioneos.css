@@ -40,6 +40,7 @@ html, body { background: #1f1f1f; }
 .p { color: var(--bioneos-purple) !important; }
 .y { color: var(--bioneos-yellow) !important; }
 .r { color: var(--bioneos-red) !important; }
+.white { color: #ffffff !important; }
 .dark { color: #3d4860 !important; }
 .bg { color: #2f2f2f !important; }
 .center { text-align: center !important; }
@@ -95,6 +96,13 @@ html, body { background: #1f1f1f; }
 .card.yellow { border-top-color: var(--bioneos-yellow); }
 .card.purple { border-top-color: var(--bioneos-purple); }
 .card.teal { border-top-color: var(--bioneos-teal); }
+.card.white { border-top-color:#ffffff; }
+
+.card ul {
+  margin-left: 0;
+  padding-left: 1.5em;
+ }
+
 .task-link {
   display: inline-block;
   margin: 0.28em 0.28em 0.28em 0;
@@ -176,4 +184,508 @@ html, body { background: #1f1f1f; }
 #overview-slide li {
   font-size: 2em;
   margin-bottom: 0.3em;
+}
+/* GitHub interface walkthrough additions */
+
+.reveal .github-tutorial-media {
+  display: block;
+  width: 100%;
+  max-height: 58vh;
+  margin: 0.35em auto 0;
+  object-fit: contain;
+  background: #111;
+  border: 1px solid var(--bioneos-line);
+  border-top: 5px solid var(--bioneos-teal);
+  border-radius: 0.35em;
+}
+
+
+.reveal .github-narrow-media {
+  width: auto;
+  max-width: 75%;
+}
+
+.reveal .github-caption {
+  margin: 0.3em auto 0;
+  color: var(--bioneos-muted);
+  font-size: 0.72em;
+  text-align: center;
+}
+
+.reveal .github-code-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7em;
+  align-items: start;
+}
+
+.reveal .github-code-grid .github-tutorial-media {
+  margin-top: 0;
+}
+
+.reveal .github-compact-list li {
+  font-size: 0.85em;
+  margin-bottom: 0.18em;
+}
+
+@media (max-width: 900px) {
+  .reveal .github-code-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reveal .github-narrow-media {
+    max-width: 100%;
+  }
+}
+
+.grid.four {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6em;
+  align-items: stretch;
+}
+
+/* Stack into two columns on medium screens */
+@media (max-width: 1000px) {
+  .grid.four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Stack into one column on narrow screens */
+@media (max-width: 650px) {
+  .grid.four {
+    grid-template-columns: 1fr;
+  }
+}
+
+.github-label-slide .instructions {
+  margin-bottom: 0.45em;
+}
+
+.github-label-bank {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-bottom: 0.5em;
+}
+
+.github-drag-label,
+.github-check-button,
+.github-reset-button {
+  border: 2px solid var(--bioneos-teal);
+  border-radius: 0.3em;
+  background: var(--bioneos-panel);
+  color: var(--bioneos-text);
+  padding: 0.35em 0.65em;
+  font: inherit;
+  cursor: pointer;
+}
+
+.github-drag-label {
+  font-size: 1em;
+}
+
+.github-drag-label.selected {
+  background: var(--bioneos-teal);
+  color: #111;
+}
+
+.github-drag-label.placed {
+  opacity: 0.35;
+}
+
+.github-image-activity {
+  position: relative;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.github-image-activity img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Shared target styling */
+.github-drop-zone {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.15em;
+  overflow: hidden;
+  background: transparent;
+  border: 3px dashed transparent;
+  color: #111;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.github-drop-zone.drag-over {
+  background: rgb(255 255 255 / 30%);
+  border-color: white;
+}
+
+.github-drop-zone.correct {
+  background: rgb(59 203 175 / 85%);
+  border-color: #3bcbaf;
+}
+
+.github-drop-zone.incorrect {
+  background: rgb(238 116 108 / 88%);
+  border-color: #ee746c;
+}
+
+/*
+  Target positions use percentages so they scale with the image.
+  Adjust these slightly if your image is cropped or resized.
+*/
+
+/* Yellow rectangle: branch selector near the upper-left */
+.branches-zone {
+  left: 9.4%;
+  top: 21.8%;
+  width: 15.7%;
+  height: 8.4%;
+}
+
+/* Purple rectangle: Code button area */
+.code-zone {
+  left: 67.8%;
+  top: 21.8%;
+  width: 9.8%;
+  height: 8.4%;
+}
+
+/* Red rectangle: commits link */
+.commits-zone {
+  left: 67.8%;
+  top: 30.5%;
+  width: 9.8%;
+  height: 7.2%;
+}
+
+/* Green rectangle: repository file area */
+.files-zone {
+  left: 9.9%;
+  top: 38.1%;
+  width: 66.2%;
+  height: 23.2%;
+}
+
+/* White rectangle: README documentation */
+.documentation-zone {
+  left: 10.7%;
+  top: 68.7%;
+  width: 64.4%;
+  height: 15.4%;
+}
+
+.github-activity-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
+
+.github-activity-feedback {
+  min-height: 1.4em;
+  margin-top: 0.3em;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .github-drag-label {
+    font-size: 0.5em;
+  }
+
+  .github-drop-zone {
+    font-size: 0.4em;
+  }
+}
+
+.git-github-sort-slide .instructions {
+  margin-bottom: 0.5em;
+}
+
+.git-github-sort {
+  display: grid;
+  grid-template-columns: 0.8fr 1.4fr;
+  gap: 0.7em;
+  align-items: start;
+}
+
+.git-github-item-bank {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  min-height: 430px;
+  padding: 0.55em;
+  background: var(--bioneos-panel);
+  border: 1px solid var(--bioneos-line);
+  border-top: 5px solid var(--bioneos-yellow);
+  border-radius: 0.35em;
+}
+
+.git-github-sort-item {
+  width: 100%;
+  padding: 0.5em 0.6em;
+  border: 2px solid var(--bioneos-teal);
+  border-radius: 0.3em;
+  background: #20252c;
+  color: var(--bioneos-text);
+  font: inherit;
+  font-size: .75em;
+  line-height: 1.2;
+  text-align: left;
+  cursor: grab;
+}
+
+.git-github-sort-item:hover,
+.git-github-sort-item:focus {
+  background: #29333d;
+}
+
+.git-github-sort-item.selected {
+  background: var(--bioneos-teal);
+  color: #111;
+}
+
+.git-github-sort-item.correct {
+  border-color: var(--bioneos-teal);
+  background: rgb(59 203 175 / 22%);
+}
+
+.git-github-sort-item.incorrect {
+  border-color: var(--bioneos-red);
+  background: rgb(238 116 108 / 22%);
+}
+
+.git-github-categories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6em;
+}
+
+.git-github-category {
+  min-height: 430px;
+  padding: 0.55em;
+  background: var(--bioneos-panel);
+  border: 1px solid var(--bioneos-line);
+  border-radius: 0.35em;
+  box-sizing: border-box;
+}
+
+.git-github-category h3 {
+  margin-bottom: 0.1em;
+}
+
+.git-github-category > p {
+  margin-top: 0;
+  color: var(--bioneos-muted);
+  font-size: 0.65em;
+}
+
+.git-category {
+  border-top: 5px solid var(--bioneos-teal);
+}
+
+.github-category {
+  border-top: 5px solid var(--bioneos-purple);
+}
+
+.git-github-category.drag-over {
+  outline: 4px dashed var(--bioneos-yellow);
+  outline-offset: -8px;
+}
+
+.git-github-drop-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  min-height: 290px;
+  margin-top: 0.4em;
+}
+
+.git-github-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.55em;
+}
+
+.git-github-check,
+.git-github-reset {
+  padding: 0.35em 0.75em;
+  border: 2px solid var(--bioneos-teal);
+  border-radius: 0.3em;
+  background: var(--bioneos-panel);
+  color: var(--bioneos-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.git-github-check:hover,
+.git-github-reset:hover {
+  background: var(--bioneos-teal);
+  color: #111;
+}
+
+.git-github-feedback {
+  min-height: 1.3em;
+  margin-top: 0.3em;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .git-github-sort {
+    grid-template-columns: 1fr;
+  }
+
+  .git-github-categories {
+    grid-template-columns: 1fr;
+  }
+
+  .git-github-item-bank,
+  .git-github-category {
+    min-height: auto;
+  }
+}
+
+.git-command-match-slide .instructions {
+  margin: 0 0 0.35em;
+}
+
+.git-match-layout {
+  display: grid;
+  grid-template-columns: 0.55fr 1.45fr;
+  gap: 0.55em;
+  align-items: start;
+}
+
+.git-command-bank {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.25em;
+  padding: 0.4em;
+  background: var(--bioneos-panel);
+  border: 1px solid var(--bioneos-line);
+  border-top: 5px solid var(--bioneos-teal);
+  border-radius: 0.35em;
+}
+
+.git-match-command {
+  padding: 0.35em 0.3em;
+  border: 2px solid var(--bioneos-teal);
+  border-radius: 0.25em;
+  background: #20252c;
+  color: var(--bioneos-text);
+  font-family: monospace;
+  font-size: 1em;
+  cursor: grab;
+}
+
+.git-match-command:hover,
+.git-match-command:focus {
+  background: #2a3540;
+}
+
+.git-match-command.selected {
+  background: var(--bioneos-teal);
+  color: #111;
+}
+
+.git-match-command.placed {
+  opacity: 0.3;
+}
+
+.git-definition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.28em;
+}
+
+.git-definition-target {
+  min-height: 85px;
+  padding: 0.35em;
+  border: 1px solid var(--bioneos-line);
+  border-top: 4px solid var(--bioneos-purple);
+  border-radius: 0.3em;
+  background: var(--bioneos-panel);
+  color: var(--bioneos-text);
+  font: inherit;
+  font-size: 1.1em;
+  line-height: 1.15;
+  text-align: left;
+  cursor: pointer;
+}
+
+.git-definition-target .matched-command {
+  display: block;
+  min-height: 1.15em;
+  margin-bottom: 0.2em;
+  color: var(--bioneos-yellow);
+  font-family: monospace;
+  font-weight: 700;
+}
+
+.git-definition-target.drag-over {
+  outline: 3px dashed var(--bioneos-yellow);
+  outline-offset: -5px;
+}
+
+.git-definition-target.correct {
+  border-color: var(--bioneos-teal);
+  background: rgb(59 203 175 / 20%);
+}
+
+.git-definition-target.incorrect {
+  border-color: var(--bioneos-red);
+  background: rgb(238 116 108 / 20%);
+}
+
+.git-match-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 0.45em;
+}
+
+.git-match-check,
+.git-match-reset {
+  padding: 0.3em 0.7em;
+  border: 2px solid var(--bioneos-teal);
+  border-radius: 0.3em;
+  background: var(--bioneos-panel);
+  color: var(--bioneos-text);
+  font: inherit;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.git-match-feedback {
+  min-height: 1.2em;
+  margin-top: 0.25em;
+  font-size: 1em;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 950px) {
+  .git-match-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .git-definition-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
