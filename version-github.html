@@ -809,20 +809,8 @@ git merge new-feature</code></pre>
 
   <p class="git-match-feedback" aria-live="polite"></p>
 </section>
-
-
-
 </section>
-  <!-- Workflow review -->
-  <section>
-    <h2>Git Commmand Contribution Workflow</h2>
-    <img
-      class="github-image-activity"
-      src="images/git-workflow/Git-Workflow.png"
-      alt="GitHub Workflow"
-    >
-  
-</section>
+ 
 
         <section>
           <section>
@@ -1080,25 +1068,9 @@ git merge new-feature</code></pre>
 </section>
 </section>
 
-
-        <section>
-          <section>
-            <h1>Initial Repos</h1>
-            <div class="grid">
-              <div class="card purple">
-                <h3>Create</h3>
-                <p>A new repo can be created for a project that can then be shared with others.</p>
-              </div>
-              <div class="card teal">
-                <h3>Clone</h3>
-                <p>A copy of a project can be made that can be collaborated on through git.</p>
-              </div>
-            </div>
-          </section>
-
           <section>
             <h1>Creating a New Repo</h1>
-            <p>You can create a new repo through either a terminal command or through a browser.</p>
+            <p>We will be covering the creation of a repo from a prexisiting repo, but you can create a new repo through either a terminal command or through a browser.</p>
             <div class="grid">
               <div class="card yellow">
                 <h3>Start New (Terminal)</h3>
@@ -1120,6 +1092,17 @@ git commit -m "Initial commit"</code></pre>
     >
               </div>
           </section>
+
+ <!-- Workflow review -->
+  <section>
+    <h2>Git Commmand Contribution Workflow</h2>
+    <img
+      class="github-image-activity"
+      src="images/git-workflow/Git-Workflow.png"
+      alt="GitHub Workflow"
+    >
+  
+</section>
 
 <section>
             <h1>Cloning a Repo</h1>
@@ -1146,159 +1129,20 @@ ls</code></pre>
               </div>
           
 </section>
-</section>
         
           <section>
             <h1>Practice Activity</h1>
             <ol class="roadmap compact-list">
-              <li>Clone or fork a practice repository.</li>
+              <li>Fork a practice repository.</li>
+              <li>Create a branch.</li>
+              <li>Clone a local copy of the repo</li>
               <li>Open it in VS Code.</li>
-              <li>Create a branch with your name.</li>
               <li>Add or edit a small file.</li>
-              <li>Run <code>git status</code>.</li>
               <li>Stage and commit your change.</li>
               <li>Push the branch.</li>
               <li>Open a pull request.</li>
             </ol>
           </section>
-          
-        <section>
-      
-          <section>
-            <h1><span class="y">Forking</span></h1>
-            <p>A fork creates a copy of someone else’s GitHub repository under your own GitHub account.</p>
-            <ul class="checklist compact-list">
-              <li>Use a fork when you do not have direct permission to push to the original repo.</li>
-              <li>Make changes safely in your copy.</li>
-              <li>Propose changes back with a pull request.</li>
-            </ul>
-          </section>
-          <section>
-            <h1>Forking Workflow</h1>
-            <ol class="roadmap">
-              <li>Open the original repository on GitHub.</li>
-              <li>Select <strong>Fork</strong>.</li>
-              <li>Clone your fork to your computer.</li>
-              <li>Create a feature branch.</li>
-              <li>Push your branch to your fork.</li>
-              <li>Open a pull request to the original repo.</li>
-            </ol>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h1><span class="b">Branching</span></h1>
-            <p>A branch is a separate line of development that lets you work without immediately changing the shared project.</p>
-            <pre><code class="language-bash">git branch
-git switch -c feature-your-name-task</code></pre>
-            <p class="callout verify">Use clear branch names so others can understand the purpose of your work.</p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h1>Make and Commit Changes</h1>
-            <ol class="roadmap">
-              <li>Edit and test the project.</li>
-              <li>Run <code>git status</code>.</li>
-              <li>Stage changes with <code>git add .</code>.</li>
-              <li>Commit with a clear message.</li>
-            </ol>
-          </section>
-          <section>
-            <h1>Commit Example</h1>
-            <pre><code class="language-bash">git status
-git add .
-git commit -m "Add capybara image button"</code></pre>
-            <div class="grid">
-              <div class="card teal"><h3>Good</h3><p><code>Fix broken image path</code></p></div>
-              <div class="card red"><h3>Avoid</h3><p><code>stuff</code>, <code>changes</code>, <code>fixed it</code></p></div>
-            </div>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h1><span class="b">Pull</span> and <span class="y">Push</span></h1>
-            <div class="grid">
-              <div class="card teal">
-                <h3>Pull</h3>
-                <p><code>git pull</code> downloads changes from GitHub and combines them with your local branch.</p>
-              </div>
-              <div class="card yellow">
-                <h3>Push</h3>
-                <p><code>git push</code> uploads your local commits to GitHub.</p>
-              </div>
-            </div>
-          </section>
-
-          <section>
-            <h1>Push a Feature Branch</h1>
-            <pre><code class="language-bash">git push -u origin feature-your-name-task</code></pre>
-            <p class="callout">The first push publishes your branch on GitHub. It does not automatically merge your changes into <code>devel</code>.</p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h1>Pull Requests</h1>
-            <p>A pull request asks project maintainers to review and merge your branch into another branch.</p>
-            <span class="workflow-line">feature branch → devel</span>
-          </section>
-
-          <section>
-            <h1>Good Pull Requests Include</h1>
-            <ul class="checklist compact-list">
-              <li>What changed.</li>
-              <li>Why the change was needed.</li>
-              <li>How the change was tested.</li>
-              <li>Screenshots for visible webpage changes.</li>
-              <li>Any problems or unfinished work.</li>
-            </ul>
-          </section>
-
-          <section>
-            <h1>PR Process</h1>
-            <ol class="roadmap">
-              <li>Push the feature branch.</li>
-              <li>Open GitHub and select <strong>Compare &amp; pull request</strong>.</li>
-              <li>Confirm the destination branch is <code>devel</code>.</li>
-              <li>Describe and submit the pull request.</li>
-              <li>Respond to review comments.</li>
-            </ol>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h1>Merge Conflicts</h1>
-            <p>A merge conflict happens when Git cannot automatically combine changes, often because two branches edited the same lines.</p>
-            <pre><code class="language-text">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-Current branch content
-=======
-Incoming branch content
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-branch</code></pre>
-          </section>
-
-          <section class="center">
-            <h1>Conflict Example</h1>
-           
-          </section>
-
-          <section>
-            <h1>Resolve a Conflict</h1>
-            <ol class="roadmap">
-              <li>Open the conflicting file.</li>
-              <li>Compare both versions.</li>
-              <li>Decide what content should remain.</li>
-              <li>Remove the conflict markers.</li>
-              <li>Test the file.</li>
-              <li>Stage, commit, and push the resolution.</li>
-            </ol>
-          </section>
-        </section>
-
 
       
         <section class="center">
