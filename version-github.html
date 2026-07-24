@@ -1515,14 +1515,14 @@ git merge upstream/main</code></pre>
 
     <section>
     <h2>5. Edit a File</h2>
-      <div class="card red-fit">
+      <div class="card teal-fit">
         <h3>Task</h3>
         <p>Add your name to <code>README.md</code> and save the file.</p>
         <br>
         <pre><code class="language-text">Updated by "Your Name"</code></pre>
       </div>
       <br>
-      <div class="card image-card red">
+      <div class="card image-card teal">
       <img
       src="images/Practice GitHub/readme.gif"
       alt="VS Example"
@@ -1532,49 +1532,63 @@ git merge upstream/main</code></pre>
 
   <section>
     <h2>6. Stage and Commit</h2>
-    <div class="grid">
       <div class="card purple">
         <h3>Task</h3>
         <p>Stage the changed file and save a commit.</p>
-        <pre><code class="language-bash">git status
-git add README.md
-git commit -m "Add my name to README"</code></pre>
-      </div>
-      <div class="card image-placeholder">
-        <p><strong>Image:</strong> Terminal showing git status, add, and commit.</p>
-        <p><code>images/stage-commit.png</code></p>
-      </div>
+        <br>
+        <pre><code class="language-bash">git add README.md
+git commit -m "add name to readme"</code></pre>
+      
+      <p>You can also use </p><pre><code class="language-bash">git add .</code></pre><p>which stages all new, modified, and deleted files 
+      within your current directory and its subdirectories.</p></div><br>
+      <div class="card image-card purple">
+         <img
+      src="images/Practice GitHub/commit.png"
+      alt="Commit Example"
+    >
     </div>
   </section>
 
-  <section>
-    <h2>7. Push the Branch</h2>
-    <div class="grid">
+    <section>
+    <h2>7. Push the Branch/Commits</h2>
       <div class="card yellow">
         <h3>Task</h3>
-        <p>Upload your branch and commit to GitHub.</p>
+         <p>Upload your branch to GitHub.</p>
         <pre><code class="language-bash">git push -u origin your-branch-name</code></pre>
-      </div>
-      <div class="card image-placeholder">
-        <p><strong>Image:</strong> Terminal showing a successful git push.</p>
-        <p><code>images/git-push.png</code></p>
-      </div>
+      <p>or</p><br>
+      <p>Upload your commits directly to shared repo.</p>
+     <pre><code class="language-bash">git push</code></pre>
+     </div>
+     <br>
+      <div class="card image-card yellow">
+         <img
+      src="images/Practice GitHub/push.png"
+      alt="Push Example"
+    >
     </div>
   </section>
 
-  <section>
+      <section>
     <h2>8. Open a Pull Request</h2>
-    <div class="grid">
-      <div class="card red">
+      <div class="card yellow">
         <h3>Task</h3>
-        <p>On GitHub, open a pull request from your branch back to the original repository.</p>
+         <p>In a terminal, open a pull request from your fork back to the original repository.</p>
+        <pre><code class="language-bash">gh pr create \
+  --base main \
+  --head YOUR-USERNAME:your-branch-name \
+  --title "Add my name to the README" \
+  --body "Completed the Git and GitHub practice activity."</code></pre>
+<p>or if you didn't have a separate fork</p>
+<pre><code class="language-bash">gh pr create \
+  --base main \
+  --title "Add my name to the README" \
+  --body "This change adds my name to the contributor list."</code></pre>
       </div>
-      <div class="card image-placeholder">
-        <p><strong>Image:</strong> GitHub Compare & pull request page.</p>
-        <p><code>images/open-pr.png</code></p>
-      </div>
-    </div>
+      <p><a class="task-link y" 
+        href="https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/creating-a-pull-request?utm_source=chatgpt.com">
+        Creating Pull Requests in Browser in GitHub</a></p>
   </section>
+  
 
   <section>
     <h2>Final Check</h2>
