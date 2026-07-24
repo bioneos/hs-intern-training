@@ -98,6 +98,18 @@ html, body { background: #1f1f1f; }
 .card.teal { border-top-color: var(--bioneos-teal); }
 .card.white { border-top-color:#ffffff; }
 .card li .big { color: var(--bioneos-muted); font-size: 2em; }
+
+.card.red-fit {   height: fit-content;
+  align-self: start; border-top-color: var(--bioneos-red); }
+.card.yellow-fit  {   height: fit-content;
+  align-self: start; border-top-color: var(--bioneos-yellow); }
+.card.purple-fit  {   height: fit-content;
+  align-self: start; border-top-color: var(--bioneos-purple); }
+.card.teal-fit  {   height: fit-content;
+  align-self: start; border-top-color: var(--bioneos-teal); }
+.card.white-fit  {   height: fit-content;
+  align-self: start; border-top-color:#ffffff; }
+
 .card ul {
   margin-left: 0;
   padding-left: 1.5em;
@@ -698,9 +710,15 @@ html, body { background: #1f1f1f; }
 .reveal .image-card img {
   display: block;
   width: 100%;
-  max-height: 500px;
+  max-height: 400px;
   object-fit: contain;
   margin: 0;
   border: none;
   box-shadow: none;
 }
+
+.image-card.red { border-top-color: var(--bioneos-red); }
+.image-card.yellow { border-top-color: var(--bioneos-yellow); }
+.image-card.purple { border-top-color: var(--bioneos-purple); }
+.image-card.teal { border-top-color: var(--bioneos-teal); }
+.image-card.white { border-top-color:#ffffff; }

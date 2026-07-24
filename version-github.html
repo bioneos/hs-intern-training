@@ -1446,32 +1446,148 @@ git merge upstream/main</code></pre>
           </section>
 
 <section>
-            <h1>Cloning a Repo</h1>
-            <p>You can create a local copy of a repo through by cloning it.</p>
-            <div class="grid">
-      <div class="card teal">
-                <h3>Copy the clone url address from GitHub</h3>
-                    <img
-      class="github-tutorial-media"
-      src="images/github-interface/clone-url.png"
-      alt="New Repo"
-    >
-              </div>
-              <div class="card yellow">
-                <h3>Start New (Terminal)</h3>
-                <pre><code># 1. Navigate to your where you want the repo
-cd /path/to/your/repo-location
-# 2. Clone the repo
-git clone "insert repo url"
-# 3. (Optional) Navigate to your new repo location
-cd "repo-name"
-# 4. (Optional) Verify files are present
-ls</code></pre>
-              </div>
-          
-</section>
-        
+  <section>
+    <h1>Practice Activity</h1>
+    <p class="introHeader">Contribute to the capybara webpage using GitHub and Git.</p>
+    <p class="callout verify">Repository: SkepticalWonder/capybara-webpage</p>
+  </section>
 
+  <section>
+    <h2>1. Fork the Practice Repository</h2>
+      <div class="card teal-fit">
+        <h3>Task</h3>
+        <p>Open the repository on GitHub and click <strong>Fork</strong> to make your own copy.</p>
+      </div>
+      <br>
+      <div class="card image-card teal">
+      <img
+      src="images/Practice GitHub/fork-example.png"
+      alt="Fork Example"
+    >
+    </div>
+  </section>
+
+    <section>
+    <h2>2. Create a Branch</h2>
+      <div class="card purple-fit">
+        <h3>Task</h3>
+        <p>Create a new branch in your fork for your changes.</p>
+      </div>
+      <br>
+      <div class="card image-card purple">
+      <img
+      src="images/Practice GitHub/branch-example.png"
+      alt="Branch Example"
+    >
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Clone a Local Copy</h2>
+      <div class="card yellow-fit">
+        <h3>Task</h3>
+        <p>Copy the HTTPS clone link from your fork, then clone it to your computer.</p>
+        <pre><code class="language-bash">git clone https://github.com/SkepticalWonder/capybara-webpage.git</code></pre>
+      </div>
+      <br>
+      <div class="card image-card yellow">
+      <img
+      src="images/Practice GitHub/clone-url.png"
+      alt="Clone URL"
+    >
+      </div>
+  </section>
+
+    <section>
+    <h2>4. Open It in VS Code</h2>
+      <div class="card red-fit">
+        <h3>Task</h3>
+        <p>Open the cloned folder/files in Visual Studio Code.</p>
+      </div>
+      <br>
+      <div class="card image-card red">
+      <img
+      src="images/Practice GitHub/vs.png"
+      alt="VS Example"
+    >
+      </div>
+  </section>
+
+    <section>
+    <h2>5. Edit a File</h2>
+      <div class="card red-fit">
+        <h3>Task</h3>
+        <p>Add your name to <code>README.md</code> and save the file.</p>
+        <br>
+        <pre><code class="language-text">Updated by "Your Name"</code></pre>
+      </div>
+      <br>
+      <div class="card image-card red">
+      <img
+      src="images/Practice GitHub/readme.gif"
+      alt="VS Example"
+    >
+      </div>
+  </section>
+
+  <section>
+    <h2>6. Stage and Commit</h2>
+    <div class="grid">
+      <div class="card purple">
+        <h3>Task</h3>
+        <p>Stage the changed file and save a commit.</p>
+        <pre><code class="language-bash">git status
+git add README.md
+git commit -m "Add my name to README"</code></pre>
+      </div>
+      <div class="card image-placeholder">
+        <p><strong>Image:</strong> Terminal showing git status, add, and commit.</p>
+        <p><code>images/stage-commit.png</code></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>7. Push the Branch</h2>
+    <div class="grid">
+      <div class="card yellow">
+        <h3>Task</h3>
+        <p>Upload your branch and commit to GitHub.</p>
+        <pre><code class="language-bash">git push -u origin your-branch-name</code></pre>
+      </div>
+      <div class="card image-placeholder">
+        <p><strong>Image:</strong> Terminal showing a successful git push.</p>
+        <p><code>images/git-push.png</code></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>8. Open a Pull Request</h2>
+    <div class="grid">
+      <div class="card red">
+        <h3>Task</h3>
+        <p>On GitHub, open a pull request from your branch back to the original repository.</p>
+      </div>
+      <div class="card image-placeholder">
+        <p><strong>Image:</strong> GitHub Compare & pull request page.</p>
+        <p><code>images/open-pr.png</code></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Final Check</h2>
+    <ul class="checklist">
+      <li>You forked the repository.</li>
+      <li>You created and used a branch.</li>
+      <li>You cloned the repo locally.</li>
+      <li>You edited a file in VS Code.</li>
+      <li>You committed and pushed your change.</li>
+      <li>You opened a pull request.</li>
+    </ul>
+  </section>
+</section>
       
         <section class="center">
           <h1><a href="index.html#/overview-slide">Return to modules</a></h1>
