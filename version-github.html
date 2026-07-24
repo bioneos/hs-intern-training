@@ -313,6 +313,9 @@
 <li>IntelliJ IDEA</li>
 <li>PyCharm</li>
 </ul></div>
+        <p class="callout verify">
+      Use the down arrow to explore different git commands.
+    </p>
   </section>
 
   <!-- git init -->
@@ -856,6 +859,9 @@ git merge new-feature</code></pre>
       src="images/github-interface/GitHub.png"
       alt="GitHub repository page"
     >
+        <p class="callout verify">
+      Use the down arrow to explore the interface.
+    </p>
   </section>
 
   <section>
@@ -1070,7 +1076,7 @@ git merge new-feature</code></pre>
 
           <section>
             <h1>Creating a New Repo</h1>
-            <p>We will be covering the creation of a repo from a prexisiting repo, but you can create a new repo through either a terminal command or through a browser.</p>
+            <p>We will be covering ways of creating repos from prexisiting repos, but you can create a new repo through either a terminal command or through a browser.</p>
             <div class="grid">
               <div class="card yellow">
                 <h3>Start New (Terminal)</h3>
@@ -1093,16 +1099,351 @@ git commit -m "Initial commit"</code></pre>
               </div>
           </section>
 
- <!-- Workflow review -->
+
+<!-- Vertical Reveal.js Slide Stack: Forks and Branches -->
+<section>
+
+  <!-- Overview -->
   <section>
-    <h2>Git Commmand Contribution Workflow</h2>
+    <h1>Forks and Branches</h1>
+
+    <p class="introHeader">
+      Forks and branches are 2 ways for developers to experiment without immediately changing the main project. 
+      Both make copies of repos for developer use but do it in importantly different ways.
+    </p>
+
+    <div class="grid">
+      <div class="card teal">
+        <h3>Branch</h3>
+        <p>
+          An isolated workspace inside an existing Git repository.
+        </p>
+      </div>
+
+      <div class="card purple">
+        <h3>Fork</h3>
+        <p>
+          A separate copy of a repository stored under another GitHub account.
+        </p>
+      </div>
+    </div>
+
+    <p class="callout verify">
+      Use the down arrow to explore how each one works.
+    </p>
+  </section>
+
+
+  <!-- What is a branch? -->
+  <section>
+    <h2>What Is a <span class="b">Branch?</span></h2>
+
+    <div class="card teal">
+      <h3>Work Inside the Repository</h3>
+
+      <p>
+        A branch creates a separate line of development within the same repository.
+      </p>
+
+      <ul>
+        <li>starts from an existing commit</li>
+        <li>keeps unfinished work away from the main branch</li>
+        <li>can be merged back into another branch</li>
+        <li>is commonly used for features, bug fixes, and experiments</li>
+      </ul>
+    </div>
+
+    <p class="callout">
+      Branches are normally used by people who already have permission to contribute to the repository.
+    </p>
+  </section>
+
+
+  <!-- Branch commands -->
+  <section>
+    <h2><span class="b">Branch</span> Workflow</h2>
+
+    <div class="grid three">
+      <div class="card teal">
+        <h3>1. Create</h3>
+
+        <pre><code class="language-bash">git switch -c feature-name</code></pre>
+
+        <p>Create and enter a new branch.</p>
+      </div>
+
+      <div class="card yellow">
+        <h3>2. Develop</h3>
+
+        <pre><code class="language-bash">git add .
+git commit -m "Add feature"</code></pre>
+
+        <p>Stage and commit the work.</p>
+      </div>
+
+      <div class="card purple">
+        <h3>3. Share</h3>
+
+        <pre><code class="language-bash">git push -u origin feature-name</code></pre>
+
+        <p>Upload the branch to GitHub.</p>
+      </div>
+    </div>
+
+    <p class="callout verify">
+      A pull request can then be opened to review and merge the branch into the main project.
+    </p>
+  </section>
+
+
+  <!-- Branch visual -->
+  <section>
+    <h2>Branches Share One Repository</h2>
+
+    <div class="pipeline-line">
+      <span>Main Branch</span>
+      <span class="arrow-text">→</span>
+      <span>Feature Branch</span>
+      <span class="arrow-text">→</span>
+      <span>Commits</span>
+      <span class="arrow-text">→</span>
+      <span>Pull Request</span>
+      <span class="arrow-text">→</span>
+      <span>Merge</span>
+    </div>
+
+    <div class="grid">
+      <div class="card teal">
+        <h3>Same Repository</h3>
+        <p>
+          The main branch and feature branch belong to the same project.
+        </p>
+      </div>
+
+      <div class="card yellow">
+        <h3>Shared Access</h3>
+        <p>
+          Repository collaborators can view and work with the branch.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- What is a fork? -->
+  <section>
+    <h2>What Is a <span class="p">Fork?</span></h2>
+
+    <div class="card purple">
+      <h3>Copy the Entire Repository</h3>
+
+      <p>
+        A fork creates a separate GitHub repository under your own account.
+      </p>
+
+      <ul>
+        <li>does not require write access to the original repository</li>
+        <li>can contain its own branches and commits</li>
+        <li>can be changed without affecting the original project</li>
+        <li>can be used as the starting point for a different project</li>
+      </ul>
+    </div>
+
+    <p class="callout">
+      Forking is a GitHub feature. Git itself does not include a <code>git fork</code> command.
+    </p>
+  </section>
+
+
+  <!-- Fork workflow -->
+  <section>
+  <h2><span class="p">Fork</span> Workflow</h2>
+
+  <div class="grid">
+    <div class="card purple">
+      <h3>How the Repositories Connect</h3>
+
+      <ol>
+        <li class="big">Fork the original repository on GitHub.</li>
+        <li class="big">Clone your fork to your local computer.</li>
+        <li class="big">Create a branch and make changes locally.</li>
+        <li class="big">Push the changes to your GitHub fork.</li>
+        <li class="big">Open a pull request to the original repository.</li>
+      </ol>
+    </div>
+
+    <div class="card teal image-card center-content">
+      <img
+        src="images/git-workflow/fork-workflow.png"
+        alt="Diagram showing an original GitHub repository, a GitHub fork, and a local copy of the repository"
+      >
+    </div>
+  </div>
+
+  <p class="callout verify">
+    A fork is a separate GitHub repository, while a clone is the copy stored on your local computer.
+  </p>
+</section>
+
+
+  <!-- Upstream -->
+  <section>
+    <h2>Keeping a Fork Updated</h2>
+
+    <p>
+      The original repository is commonly added as a second remote named
+      <code>upstream</code>.
+    </p>
+
+    <div class="card teal">
+      <h3>Add the Original Repository</h3>
+
+      <pre><code class="language-bash">git remote add upstream ORIGINAL-REPOSITORY-URL</code></pre>
+    </div>
+
+    <div class="card yellow">
+      <h3>Download New Changes</h3>
+
+      <pre><code class="language-bash">git fetch upstream
+git switch main
+git merge upstream/main</code></pre>
+    </div>
+
+    <p class="callout">
+      This keeps your fork synchronized with changes made to the original project.
+    </p>
+  </section>
+
+
+  <!-- Comparison -->
+  <section>
+    <h2>Branch or Fork?</h2>
+
+    <div class="grid">
+      <div class="card teal">
+        <h3>Use a Branch When...</h3>
+
+        <ul>
+          <li>you have write access</li>
+          <li>you are part of the project team</li>
+          <li>the work belongs in the same repository</li>
+          <li>you are developing a feature or fixing a bug</li>
+        </ul>
+      </div>
+
+      <div class="card purple">
+        <h3>Use a Fork When...</h3>
+
+        <ul>
+          <li>you do not have write access</li>
+          <li>you are contributing to another organization’s project</li>
+          <li>you want an independent copy</li>
+          <li>you are contributing to open-source software</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Quick comparison -->
+  <section>
+    <h2>Quick Comparison</h2>
+
+    <div class="grid three">
+      <div class="card teal">
+        <h3>Location</h3>
+        <p><strong>Branch:</strong> Inside the original repository.</p>
+        <p><strong>Fork:</strong> A separate repository.</p>
+      </div>
+
+      <div class="card purple">
+        <h3>Permission</h3>
+        <p><strong>Branch:</strong> Usually requires write access.</p>
+        <p><strong>Fork:</strong> Does not require write access.</p>
+      </div>
+
+      <div class="card yellow">
+        <h3>Best Use</h3>
+        <p><strong>Branch:</strong> Internal development.</p>
+        <p><strong>Fork:</strong> External or open-source contributions.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Scenario check -->
+  <section>
+    <h2>Which Should You Use?</h2>
+
+    <div class="grid">
+      <div class="card teal">
+        <h3>Scenario A</h3>
+        <p>
+          You are a member of the development team and need to add a dashboard feature.
+        </p>
+        <p class="callout verify"><strong>Use a branch.</strong></p>
+      </div>
+
+      <div class="card purple">
+        <h3>Scenario B</h3>
+        <p>
+          You found an open-source project and want to propose a fix without having write access.
+        </p>
+        <p class="callout verify"><strong>Use a fork.</strong></p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Summary -->
+  <section>
+    <h2>Remember</h2>
+
+    <div class="grid">
+      <div class="card teal center-content">
+        <h3>Branch</h3>
+        <p>
+          A separate workspace inside the same repository.
+        </p>
+      </div>
+
+      <div class="card purple center-content">
+        <h3>Fork</h3>
+        <p>
+          A separate copy of the repository under another account.
+        </p>
+      </div>
+    </div>
+
+    <p class="callout verify">
+      Branches separate the work. Forks separate the repository.
+    </p>
+  </section>
+</section>
+
+<!-- Workflow review -->
+  <section>
+    <h2>Bio::Neos Git Contribution Workflow</h2>
     <img
       class="github-image-activity"
       src="images/git-workflow/Git-Workflow.png"
       alt="GitHub Workflow"
     >
-  
 </section>
+
+          <section>
+            <h1>Practice Activity</h1>
+            <ol class="roadmap compact-list">
+              <li>Fork a practice repository.</li>
+              <li>Create a branch.</li>
+              <li>Clone a local copy of the repo</li>
+              <li>Open it in VS Code.</li>
+              <li>Add or edit a small file.</li>
+              <li>Stage and commit your change.</li>
+              <li>Push the branch.</li>
+              <li>Open a pull request.</li>
+            </ol>
+          </section>
 
 <section>
             <h1>Cloning a Repo</h1>
@@ -1130,19 +1471,6 @@ ls</code></pre>
           
 </section>
         
-          <section>
-            <h1>Practice Activity</h1>
-            <ol class="roadmap compact-list">
-              <li>Fork a practice repository.</li>
-              <li>Create a branch.</li>
-              <li>Clone a local copy of the repo</li>
-              <li>Open it in VS Code.</li>
-              <li>Add or edit a small file.</li>
-              <li>Stage and commit your change.</li>
-              <li>Push the branch.</li>
-              <li>Open a pull request.</li>
-            </ol>
-          </section>
 
       
         <section class="center">
